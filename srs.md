@@ -81,3 +81,209 @@ Table 2. User roles and required competencies
 | **Backend**          | The server-side logic and infrastructure that supports data processing, storage, and core functionality. |
 
 *Table 3. Glossary of key terms*
+
+
+## 3. Requirements
+
+### 3.1 External Interfaces
+
+This section defines the external interface requirements of the Campus Event Check-In System.  
+It describes the user-facing actions and the corresponding inputs and outputs expected in each interaction. The interface elements are designed to offer a seamless and user-friendly experience, while ensuring secure and efficient communication with external components such as the university’s student database, integrated payment systems, and QR scanning tools. These interfaces serve as the connection point between users and the system’s core functionalities.
+
+---
+
+### 3.1.1 Login
+
+Tables below define the interface components used in the login user interface.
+
+#### `REQ_IO0001` - Login Button (Input)
+
+| **Field**        | **Detail**                                                            |
+|------------------|------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                    |
+| **Item**         | Login Button (Input)                                                   |
+| **Description**  | A button labeled “Login”                                               |
+| **Purpose**      | Submits login credentials for authentication                          |
+| **Input Format** | Button                                                                 |
+| **Valid Input**  | Not Applicable                                                         |
+| **Related I/O**  | REQ_IO00002, REQ_IO0003 (Both fields must be filled)                   |
+| **Author**       | Suliman                                                                |
+
+#### `REQ_IO0002` - Student ID Field (Input)
+
+| **Field**        | **Detail**                                                 |
+|------------------|-------------------------------------------------------------|
+| **Version**      | 1.0                                                         |
+| **Item**         | Student ID Field (Input)                                    |
+| **Description**  | A text field labeled “Student ID”                           |
+| **Purpose**      | Allows users to enter their Student ID                      |
+| **Input Format** | String                                                      |
+| **Valid Input**  | ASCII code from decimal 32 to 126                           |
+| **Related I/O**  | None                                                        |
+| **Author**       | Suliman                                                     |
+
+#### `REQ_IO0003` - Password Field (Input)
+
+| **Field**        | **Detail**                                                 |
+|------------------|-------------------------------------------------------------|
+| **Version**      | 1.0                                                         |
+| **Item**         | Password Field (Input)                                      |
+| **Description**  | A text field labeled “Password”                             |
+| **Purpose**      | Allows users to enter their password                        |
+| **Input Format** | String                                                      |
+| **Valid Input**  | ASCII code from decimal 32 to 126                           |
+| **Related I/O**  | None                                                        |
+| **Author**       | Suliman                                                     |
+
+#### `REQ_IO0004` - Failure Message (Output)
+
+| **Field**        | **Detail**                                                 |
+|------------------|-------------------------------------------------------------|
+| **Version**      | 1.0                                                         |
+| **Item**         | Failure Message (Output)                                    |
+| **Description**  | Toast message for login failure                             |
+| **Purpose**      | Notifies users of incorrect login                           |
+| **Input Format** | Not Applicable                                              |
+| **Valid Input**  | Not Applicable                                              |
+| **Related I/O**  | REQ_IO0001 (Only displayed after submission)                |
+| **Author**       | Suliman                                                     |
+
+---
+
+### 3.1.2 Event Registration
+
+Tables below define the interface components used in the event registration user interface.
+
+#### `REQ_IO0005` - Event List (Output)
+
+| **Field**        | **Detail**                                                 |
+|------------------|-------------------------------------------------------------|
+| **Version**      | 1.0                                                         |
+| **Item**         | Event List (Output)                                         |
+| **Description**  | A list displaying available events with key details         |
+| **Purpose**      | Allows students to browse and select events                 |
+| **Input Format** | Not Applicable                                              |
+| **Valid Input**  | Not Applicable                                              |
+| **Related I/O**  | REQ_IO0006                                                  |
+| **Author**       | Suliman                                                     |
+
+#### `REQ_IO0006` - Register Button (Input)
+
+| **Field**        | **Detail**                                                             |
+|------------------|-------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                     |
+| **Item**         | Button labeled “Register” next to each event                            |
+| **Description**  | Initiates the registration process for a selected event                 |
+| **Purpose**      | Button                                                                  |
+| **Input Format** | Not Applicable                                                          |
+| **Valid Input**  | Not Applicable                                                          |
+| **Related I/O**  | REQ_IO0005, REQ_IO0007                                                  |
+| **Author**       | Suliman                                                                 |
+
+#### `REQ_IO0007` - Event Details Modal (Output)
+
+| **Field**        | **Detail**                                                               |
+|------------------|---------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                       |
+| **Item**         | Event Details Modal (Output)                                              |
+| **Description**  | A popup/modal showing full event information                              |
+| **Purpose**      | Allows students to review event details before confirming                 |
+| **Input Format** | Not Applicable                                                            |
+| **Valid Input**  | Not Applicable                                                            |
+| **Related I/O**  | REQ_IO0006, REQ_IO0008                                                    |
+| **Author**       | Suliman                                                                   |
+
+#### `REQ_IO0008` - Confirm Registration Button (Input)
+
+| **Field**        | **Detail**                                                       |
+|------------------|-------------------------------------------------------------------|
+| **Version**      | 1.0                                                               |
+| **Item**         | Confirm Registration Button (Input)                               |
+| **Description**  | Button to finalize event registration                              |
+| **Purpose**      | Submits event registration request                                 |
+| **Input Format** | Button                                                             |
+| **Valid Input**  | Not Applicable                                                     |
+| **Related I/O**  | REQ_IO0007                                                         |
+| **Author**       | Suliman                                                            |
+
+#### `REQ_IO0009` - Registration Success Message (Output)
+
+| **Field**        | **Detail**                                                               |
+|------------------|---------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                       |
+| **Item**         | Registration Success Message (Output)                                     |
+| **Description**  | A confirmation message after successful registration                      |
+| **Purpose**      | Informs student that registration is complete                             |
+| **Input Format** | Not Applicable                                                            |
+| **Valid Input**  | "Registration successful"                                                 |
+| **Related I/O**  | REQ_IO0008                                                                |
+| **Author**       | Suliman                                                                   |
+
+#### `REQ_IO0010` - Registration Error Message (Output)
+
+| **Field**        | **Detail**                                                                       |
+|------------------|-----------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                               |
+| **Item**         | Registration Error Message (Output)                                               |
+| **Description**  | A message displayed when registration fails                                       |
+| **Purpose**      | Notifies student of issues with registration                                      |
+| **Input Format** | Not Applicable                                                                    |
+| **Valid Input**  | "Registration failed. Please try again."                                          |
+| **Related I/O**  | REQ_IO0008                                                                        |
+| **Author**       | Suliman                                                                           |
+
+### 3.1.3 Event Check-in
+
+Tables below define the interface components used in the event check-in user interface.
+
+#### `REQ_IO0011` - QR Scanner Button (Input)
+
+| **Field**        | **Detail**                                                             |
+|------------------|-------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                     |
+| **Item**         | QR Scanner Button (Input)                                               |
+| **Description**  | A button that activates the device camera for QR scanning               |
+| **Purpose**      | Allows student to initiate the check-in process by scanning a QR code   |
+| **Input Format** | Button                                                                  |
+| **Valid Input**  | Not Applicable                                                          |
+| **Related I/O**  | REQ_IO0012                                                              |
+| **Author**       | Suliman                                                                 |
+
+#### `REQ_IO0012` - QR Code Data (Input)
+
+| **Field**        | **Detail**                                                                  |
+|------------------|------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                          |
+| **Item**         | QR Code Data (Input)                                                         |
+| **Description**  | Encoded event-specific QR code content                                       |
+| **Purpose**      | Provides event identity to validate check-in                                 |
+| **Input Format** | String                                                                       |
+| **Valid Input**  | Valid event token (UUID format or predefined code)                           |
+| **Related I/O**  | REQ_IO0011                                                                   |
+| **Author**       | Suliman                                                                      |
+
+#### `REQ_IO0013` - Check-in Confirmation Message (Output)
+
+| **Field**        | **Detail**                                                        |
+|------------------|--------------------------------------------------------------------|
+| **Version**      | 1.0                                                                |
+| **Item**         | Check-in Confirmation Message (Output)                             |
+| **Description**  | A success message upon successful check-in                         |
+| **Purpose**      | Confirms successful attendance logging                             |
+| **Input Format** | Not Applicable                                                     |
+| **Valid Input**  | "Check-in successful"                                              |
+| **Related I/O**  | REQ_IO0011                                                         |
+| **Author**       | Suliman                                                            |
+
+#### `REQ_IO0014` - Error Message (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Error Message (Output)                                                      |
+| **Description**  | A message displayed if QR is invalid or student not registered              |
+| **Purpose**      | Informs user that check-in failed                                           |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | "You are not registered for this event"                                     |
+| **Related I/O**  | REQ_IO0011                                                                  |
+| **Author**       | Suliman                                                                     |
