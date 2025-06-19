@@ -44,3 +44,15 @@ This interaction is illustrated in **Figure 1**, which shows the high-level cont
 | **Analytics and Reports**       | Generates post-event reports including attendance logs, transaction summaries, and ticket scan histories for students and vendors.                     |
 
 *Table 1. Key product functions of the Campus Check-in System*
+
+---
+
+### 1.3.3 User Characteristics
+
+| *Role*   | *Description*                                                                                 | *Required Knowledge*                                                                                       |
+|-----------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| *Student* | University students using the system to check in and make purchases at events.                   | Basic familiarity with mobile or web-based applications.                                                     |
+| *Admin*   | Staff responsible for managing events, tracking attendance, and accessing reports.               | Familiarity with admin dashboards, event management tools, and reporting interfaces.                         |
+| *Vendor*  | On-site service providers (e.g., food or merchandise vendors) using the system to process transactions and monitor sales. | Basic understanding of digital payment platforms and ability to navigate the vendor interface. |
+
+Table 2. User roles and required competencies
