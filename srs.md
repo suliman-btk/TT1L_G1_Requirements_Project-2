@@ -31,3 +31,53 @@ The Campus Check-in System operates as a centralized event management platform t
 This interaction is illustrated in **Figure 1**, which shows the high-level context of the system and its key data exchanges.
 
 ![Figure 1: System Context Diagram](./images/context_diagram.png)
+
+### 1.3.2 Product Functions
+
+| **Function**                     | **Description**                                                                                                                                         |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Student Check-in**            | Allows students to check in to events using their university ID cards or student numbers.                                                               |
+| **Ticket Verification**         | Validates tickets during entry to ensure that only authorized participants are admitted.                                                               |
+| **Payment Processing**          | Enables secure on-site purchases (e.g., food, merchandise) through integration with payment gateways.                                                  |
+| **Real-time Attendance Tracking** | Records attendance as students check in and provides up-to-date data to the admin interface.                                                           |
+| **Student Database Integration** | Connects to the university’s identification database for real-time verification of student status.                                                     |
+| **Analytics and Reports**       | Generates post-event reports including attendance logs, transaction summaries, and ticket scan histories for students and vendors.                     |
+
+*Table 1. Key product functions of the Campus Check-in System*
+
+---
+
+### 1.3.3 User Characteristics
+
+| *Role*   | *Description*                                                                                 | *Required Knowledge*                                                                                       |
+|-----------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| *Student* | University students using the system to check in and make purchases at events.                   | Basic familiarity with mobile or web-based applications.                                                     |
+| *Admin*   | Staff responsible for managing events, tracking attendance, and accessing reports.               | Familiarity with admin dashboards, event management tools, and reporting interfaces.                         |
+| *Vendor*  | On-site service providers (e.g., food or merchandise vendors) using the system to process transactions and monitor sales. | Basic understanding of digital payment platforms and ability to navigate the vendor interface. |
+
+Table 2. User roles and required competencies
+
+### 1.3.4 Limitations
+
+- **Dependence on Internet Connectivity**: The system requires a stable internet connection for real-time check-ins, payment processing, and data synchronization.
+- **Scalability Constraints**: Performance may degrade in large-scale events without proper server infrastructure.
+- **Lack of Offline Support**: Version 1.0 does not support offline operations, including check-in and payment processing.
+- **User Training Needs**: Admins and vendors may require minimal training to operate the system efficiently and avoid errors.
+- **Device Compatibility**: Admins and vendors must use compatible tablets or laptops; inadequate hardware could hinder functionality.
+
+---
+
+### 1.4 Definitions
+
+| **Term**             | **Definition**                                                                                          |
+|----------------------|----------------------------------------------------------------------------------------------------------|
+| **Integration**      | The process of linking the system with external platforms such as databases and payment gateways.        |
+| **Analytics**        | Data analysis activities aimed at extracting insights, such as user activity or attendance patterns.      |
+| **On-site Purchases**| Purchases made at the event location (e.g., food, merchandise).                                           |
+| **Payment Gateway**  | A service that securely processes digital payments such as credit/debit card transactions.               |
+| **Check-in System**  | A digital tool used to verify participant presence at events.                                             |
+| **Ticket Verification** | The validation process that determines whether an event ticket is genuine and valid.                 |
+| **End Users**        | Individuals interacting directly with the system (students, admins, vendors).                            |
+| **Backend**          | The server-side logic and infrastructure that supports data processing, storage, and core functionality. |
+
+*Table 3. Glossary of key terms*
