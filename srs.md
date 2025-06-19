@@ -56,3 +56,28 @@ This interaction is illustrated in **Figure 1**, which shows the high-level cont
 | *Vendor*  | On-site service providers (e.g., food or merchandise vendors) using the system to process transactions and monitor sales. | Basic understanding of digital payment platforms and ability to navigate the vendor interface. |
 
 Table 2. User roles and required competencies
+
+### 1.3.4 Limitations
+
+- **Dependence on Internet Connectivity**: The system requires a stable internet connection for real-time check-ins, payment processing, and data synchronization.
+- **Scalability Constraints**: Performance may degrade in large-scale events without proper server infrastructure.
+- **Lack of Offline Support**: Version 1.0 does not support offline operations, including check-in and payment processing.
+- **User Training Needs**: Admins and vendors may require minimal training to operate the system efficiently and avoid errors.
+- **Device Compatibility**: Admins and vendors must use compatible tablets or laptops; inadequate hardware could hinder functionality.
+
+---
+
+### 1.4 Definitions
+
+| **Term**             | **Definition**                                                                                          |
+|----------------------|----------------------------------------------------------------------------------------------------------|
+| **Integration**      | The process of linking the system with external platforms such as databases and payment gateways.        |
+| **Analytics**        | Data analysis activities aimed at extracting insights, such as user activity or attendance patterns.      |
+| **On-site Purchases**| Purchases made at the event location (e.g., food, merchandise).                                           |
+| **Payment Gateway**  | A service that securely processes digital payments such as credit/debit card transactions.               |
+| **Check-in System**  | A digital tool used to verify participant presence at events.                                             |
+| **Ticket Verification** | The validation process that determines whether an event ticket is genuine and valid.                 |
+| **End Users**        | Individuals interacting directly with the system (students, admins, vendors).                            |
+| **Backend**          | The server-side logic and infrastructure that supports data processing, storage, and core functionality. |
+
+*Table 3. Glossary of key terms*
