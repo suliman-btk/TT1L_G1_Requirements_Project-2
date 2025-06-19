@@ -31,3 +31,16 @@ The Campus Check-in System operates as a centralized event management platform t
 This interaction is illustrated in **Figure 1**, which shows the high-level context of the system and its key data exchanges.
 
 ![Figure 1: System Context Diagram](./images/context_diagram.png)
+
+### 1.3.2 Product Functions
+
+| **Function**                     | **Description**                                                                                                                                         |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Student Check-in**            | Allows students to check in to events using their university ID cards or student numbers.                                                               |
+| **Ticket Verification**         | Validates tickets during entry to ensure that only authorized participants are admitted.                                                               |
+| **Payment Processing**          | Enables secure on-site purchases (e.g., food, merchandise) through integration with payment gateways.                                                  |
+| **Real-time Attendance Tracking** | Records attendance as students check in and provides up-to-date data to the admin interface.                                                           |
+| **Student Database Integration** | Connects to the university’s identification database for real-time verification of student status.                                                     |
+| **Analytics and Reports**       | Generates post-event reports including attendance logs, transaction summaries, and ticket scan histories for students and vendors.                     |
+
+*Table 1. Key product functions of the Campus Check-in System*
