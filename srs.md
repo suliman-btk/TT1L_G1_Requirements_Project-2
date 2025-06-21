@@ -860,4 +860,140 @@ A sequence diagram is also provided to visually represent the process flow.
 #### Sequence Diagram – Event Check-In
 
 ![Sequence Diagram – Event Check-In](./images/event_check_in_sequence_diagram.png)
- 
+
+### 3.2.2.4 Make Payment
+
+This section defines the functional requirements and [use case specification](#) for the **Make Payment** feature of the system.
+
+In earlier versions of the SRS, this was referred to as **Process Student Payment**, primarily intended for handling payments related to event registration. However, this is now handled as part of the **Event Registration** use case.
+
+The **Make Payment** feature now focuses only on **on-site vendor payments**, such as food or merchandise during events.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0401 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow students to initiate payments for purchases made at event venues. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0402 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall process the payment via an integrated payment gateway. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0403 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall update the payment database upon successful transaction. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0404 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall notify students of successful or failed payment status. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+#### Use Case Specification – Make Payment
+
+| **Use Case ID**    | UC004                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F004 – Make Payment              |
+| **Purpose**        | To allow students to make payments to vendors during events |
+| **Actor**          | Student                          |
+| **Trigger**        | Student selects a vendor or scans a vendor’s QR code to initiate payment |
+| **Precondition**   | Student must be logged in and have a valid payment method |
+| **Main Flow**      | 1. Student scans vendor QR code or selects vendor <br> 2. System prompts for payment details <br> 3. Student enters payment amount and confirms <br> 4. System processes the payment via the gateway <br> 5. If payment is successful, the database is updated and student is notified |
+| **Alternate Flow – Payment Failed** | 5.1 System displays: “Payment failed. Please try again.” |
+| **Author**         | Lim Ai Nee                        |
+
+---
+
+![Sequence Diagram – Make Payment](./images/make_payment_sequence_diagram.png)
+
+---
+
+### 3.2.2.5 Manage Event
+
+This section defines the functional requirements and [use case specification](#) for the **Manage Event** feature.
+
+This includes actions such as **Create**, **Edit**, and **Delete Event**, now modeled as extensions under the admin’s event management functionality.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0501 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow admins to access an event management interface. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0502 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow admins to create new events by entering required details. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0503 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow admins to modify existing events. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0504 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow admins to delete events that are no longer needed. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0505 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall validate event details before saving changes. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0506 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall update the event records in the database after each operation. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+#### Use Case Specification – Manage Event
+
+| **Use Case ID**    | UC005                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F005 – Manage Events             |
+| **Purpose**        | To enable admins to create, edit, or delete event records |
+| **Actor**          | Admin                            |
+| **Trigger**        | Admin opens the event management interface |
+| **Precondition**   | Admin must be logged in with event management permissions |
+| **Main Flow**      | 1. Admin navigates to the event management section <br> 2. System displays a list of existing events <br> 3. Admin selects one of the following actions: <br> • Create new event <br> • Edit an existing event <br> • Delete an event <br> 4. System displays the relevant form or confirmation prompt <br> 5. Admin submits the action <br> 6. System validates input and saves changes to the database <br> 7. System displays a success message |
+| **Alternate Flow – Cancelled Action** | 4.1 Admin cancels the action → return to event list |
+| **Alternate Flow – Invalid Input**    | 6.1 System displays: “Please fill in all required fields” |
+| **Author**         | Lim Ai Nee                        |
+
+---
+
+![Sequence Diagram – Manage Events](./images/manage_events_sequence_diagram.png)
