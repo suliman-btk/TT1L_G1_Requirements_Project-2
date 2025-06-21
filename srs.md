@@ -492,3 +492,130 @@ Tables below define the interface components used in the manage events user inte
 | **Related I/O**  | REQ_IO0025 to REQ_IO0028                                                    |
 | **Author**       | Lim Ai Nee                                                                  |
 
+### 3.1.6 Manage Attendance
+
+Tables below define the interface components used in the manage attendance user interface.
+
+#### `REQ_IO0030` - Event Dropdown (Input)
+
+| **Field**        | **Detail**                                                         |
+|------------------|---------------------------------------------------------------------|
+| **Version**      | 1.0                                                                 |
+| **Item**         | Event Dropdown (Input)                                              |
+| **Description**  | Dropdown list of events for selection                               |
+| **Purpose**      | Allows admin to select the event for attendance management          |
+| **Input Format** | Dropdown                                                            |
+| **Valid Input**  | Valid event names from system                                       |
+| **Related I/O**  | REQ_IO0031, REQ_IO0032                                              |
+| **Author**       | Azhar                                                               |
+
+#### `REQ_IO0031` - Generate QR Button (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Generate QR Button (Input)                                                  |
+| **Description**  | A button to generate the event-specific check-in QR code                    |
+| **Purpose**      | Enables the admin to display the QR code used by students to check in       |
+| **Input Format** | Button                                                                      |
+| **Valid Input**  | Not Applicable                                                              |
+| **Related I/O**  | REQ_IO0030                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0032` - QR Code Image (Output)
+
+| **Field**        | **Detail**                                                         |
+|------------------|---------------------------------------------------------------------|
+| **Version**      | 1.0                                                                 |
+| **Item**         | QR Code Image (Output)                                              |
+| **Description**  | QR code generated for check-in                                      |
+| **Purpose**      | Displayed on the screen for scanning by students                    |
+| **Input Format** | Image                                                               |
+| **Valid Input**  | Auto-generated QR                                                   |
+| **Related I/O**  | REQ_IO0031                                                          |
+| **Author**       | Azhar                                                               |
+
+#### `REQ_IO0033` - Attendance List Table (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Attendance List Table (Output)                                              |
+| **Description**  | Table listing all students who checked in                                   |
+| **Purpose**      | Allows admin to view all registered attendees in real time                  |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | Auto-fetched                                                                |
+| **Related I/O**  | REQ_IO0030, REQ_IO0034                                                      |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0034` - Refresh Button (Input)
+
+| **Field**        | **Detail**                                                                       |
+|------------------|-----------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                               |
+| **Item**         | Refresh Button (Input)                                                            |
+| **Description**  | A button to reload the attendance list                                            |
+| **Purpose**      | Refreshes the displayed attendance table to include latest check-ins              |
+| **Input Format** | Button                                                                            |
+| **Valid Input**  | Not Applicable                                                                    |
+| **Related I/O**  | REQ_IO0033                                                                        |
+| **Author**       | Azhar                                                                             |
+
+---
+
+### 3.1.7 Manage Payment
+
+Tables below define the interface components used in the manage payment user interface.
+
+#### `REQ_IO0035` - Payment Amount Field (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Payment Amount Field (Input)                                                |
+| **Description**  | Text field where vendor inputs the amount to be charged                     |
+| **Purpose**      | Captures the transaction amount for a vendor sale                           |
+| **Input Format** | Decimal Number                                                              |
+| **Valid Input**  | Positive values (e.g., 1.00 – 999.99)                                        |
+| **Related I/O**  | REQ_IO0036                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0036` - Confirm Payment Button (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Confirm Payment Button (Input)                                              |
+| **Description**  | Button to submit the entered payment                                        |
+| **Purpose**      | Saves the transaction to the database                                       |
+| **Input Format** | Button                                                                      |
+| **Valid Input**  | Not Applicable                                                              |
+| **Related I/O**  | REQ_IO0035                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0037` - Success Message (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Success Message (Output)                                                    |
+| **Description**  | Message confirming successful payment submission                            |
+| **Purpose**      | Informs vendor that transaction was recorded                                |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | "Payment recorded successfully"                                             |
+| **Related I/O**  | REQ_IO0036                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0038` - Error Message (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Error Message (Output)                                                      |
+| **Description**  | Message shown if input is missing or invalid                                |
+| **Purpose**      | Warns vendor to enter a valid amount                                        |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | "Please enter a valid amount"                                               |
+| **Related I/O**  | REQ_IO0035                                                                  |
+| **Author**       | Azhar                                                                       |
+
