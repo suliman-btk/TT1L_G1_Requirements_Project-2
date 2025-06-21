@@ -1256,3 +1256,66 @@ This is the first dedicated version of this functionality, now modeled as its ow
 ---
 
 ![Sequence Diagram – Generate Event Report](./images/generate_event_report_sequence_diagram.png)
+
+
+## IMPORTANT *Suliman: THIS PART SHOULD BE MOVED UP WHILE COMBINING ALL THE WORK*
+
+### 1.3.1.1 System Interface
+
+| Requirement ID | Description | Priority | Author |
+|----------------|-------------|----------|--------|
+| REQ_SI001 | The system must be linked to the university’s student database via an authenticated API or secure connection to validate student identity in real-time. | High | Suliman |
+| REQ_SI002 | The system will integrate with Stripe, a PCI-compliant digital payment service, to allow vendors to process purchases using debit, credit, or e-wallets. | High | Suliman |
+| REQ_SI003 | Admin interfaces must connect to the centralized backend to retrieve and update data related to events, tickets, and attendance. | Medium | Suliman |
+| REQ_SI004 | All check-ins, purchases, and admin actions will be logged securely. | High | Suliman |
+
+### 1.3.1.2 User Interface
+
+| Interface ID | Description | Priority | Author |
+|--------------|-------------|----------|--------|
+| REQ_UI001 | The system shall offer a responsive design that adjusts to different screen sizes and devices. | High | Suliman |
+| REQ_UI002 | Interfaces must maintain consistency in layout, colors, icons, and interaction patterns to support usability. | High | Suliman |
+| REQ_UI003 | Navigation must be simple and intuitive, allowing users to complete tasks with minimal steps. | High | Suliman |
+| REQ_UI004 | All forms shall provide real-time validation feedback, including helpful error messages for incorrect input. | Medium | Suliman |
+| REQ_UI005 | Visual feedback (e.g., success, loading, or failure indicators) must be provided for all user actions. | Medium | Suliman |
+| REQ_UI006 | Text fields, buttons, tables, and other components must be clearly labeled and accessible. | High | Suliman |
+| REQ_UI007 | QR code-based interactions (for check-in and vendor payments) must be integrated seamlessly into the mobile interface. | High | Suliman |
+| REQ_UI008 | The UI must be accessible, supporting standard keyboard navigation and readable contrast ratios. | High | Suliman |
+| REQ_UI009 | The system should allow for language localization in future versions to support multilingual users. | Low | Suliman |
+
+### 1.3.1.3 Hardware Interface
+
+| Interface ID | Description | Priority | Author |
+|--------------|-------------|----------|--------|
+| REQ_HW001 | Student devices must be smartphones (Android/iOS) equipped with cameras to enable QR scanning at event check-in. | High | Suliman |
+| REQ_HW002 | Student devices must be internet-enabled, supporting either Wi-Fi or mobile data connections. | High | Suliman |
+| REQ_HW003 | The app will access the camera for QR scanning functionality on student devices. | High | Suliman |
+| REQ_HW004 | Vendor devices must be smartphones or tablets capable of managing sales and logging payments. | High | Suliman |
+| REQ_HW005 | Vendor devices must have reliable internet connectivity to ensure real-time transaction logging. | High | Suliman |
+| REQ_HW006 | Admins will use laptops or desktops to manage events, generate reports, and control attendance. | High | Suliman |
+| REQ_HW007 | Admin devices must support standard web browsers and secure system access protocols. | High | Suliman |
+| REQ_HW008 | Admins may use tablets or laptops to display QR codes for check-in purposes. | Medium | Suliman |
+| REQ_HW009 | QR code display devices should have high-resolution displays to ensure easy and accurate scanning. | Medium | Suliman |
+| REQ_HW010 | The backend system must be hosted on a university-managed server infrastructure. | High | Suliman |
+| REQ_HW011 | All client-server communications must be secured using HTTPS with TLS encryption. | High | Suliman |
+
+### 1.3.1.4 Software Interface
+
+| Interface ID | Description | Priority | Author |
+|--------------|-------------|----------|--------|
+| REQ_SW001 | The system shall connect to the university’s student information system via a hosted API to verify credentials during login and check-in. | High | Suliman |
+| REQ_SW002 | The system shall integrate with Stripe as a payment gateway to manage payment sessions, confirm transactions, and verify payment success. | High | Suliman |
+| REQ_SW003 | Communication with Stripe shall occur over HTTPS, with API keys securely stored in the backend system. | High | Suliman |
+| REQ_SW004 | The system shall use the `qr_flutter` library or an equivalent package to generate dynamic QR codes for each event. | Medium | Suliman |
+| REQ_SW005 | Generated QR codes shall include encrypted event IDs and be displayed in real-time during check-in. | High | Suliman |
+| REQ_SW006 | The system shall utilize the Elastic Stack (Elasticsearch, Logstash, Kibana) for backend logging of check-ins, transactions, and admin activities. | Medium | Suliman |
+| REQ_SW007 | All logs shall be pushed to Logstash and visualized through Kibana dashboards for monitoring and analysis. | Medium | Suliman |
+
+### 1.3.1.5 Communication Interfaces
+
+| Interface ID | Description | Priority | Author |
+|--------------|-------------|----------|--------|
+| REQ_COM001 | Communication with the student database shall use HTTPS over a REST API to securely validate student records during login and check-in. | High | Suliman |
+| REQ_COM002 | Payment transactions shall be transmitted securely using HTTPS with TLS encryption between student devices and the Stripe system. | High | Suliman |
+| REQ_COM003 | Internal system communications, including QR code generation, event syncing, and logging, shall use HTTPS to ensure secure operations. | High | Suliman |
+| REQ_COM004 | All frontend interfaces for students, vendors, and admins shall communicate with the backend over HTTPS via web-based protocols to ensure secure and encrypted interactions. | High | Suliman |
