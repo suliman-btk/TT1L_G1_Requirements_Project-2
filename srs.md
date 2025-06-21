@@ -619,3 +619,104 @@ Tables below define the interface components used in the manage payment user int
 | **Related I/O**  | REQ_IO0035                                                                  |
 | **Author**       | Azhar                                                                       |
 
+### 3.1.8 View Sales Report
+
+Tables below define the interface components used in the view sales report user interface.
+
+#### `REQ_IO0039` - Date Range Picker (Input)
+
+| **Field**        | **Detail**                                                               |
+|------------------|---------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                       |
+| **Item**         | Date Range Picker (Input)                                                 |
+| **Description**  | A pair of date fields (start and end)                                     |
+| **Purpose**      | Allows vendor to select the time period for the report                    |
+| **Input Format** | Date                                                                      |
+| **Valid Input**  | Valid past dates (from - to)                                              |
+| **Related I/O**  | REQ_IO0040                                                                |
+| **Author**       | Yousef                                                                    |
+
+#### `REQ_IO0040` - Generate Report Button (Input)
+
+| **Field**        | **Detail**                                                               |
+|------------------|---------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                       |
+| **Item**         | Generate Report Button (Input)                                            |
+| **Description**  | Button to submit the date range and retrieve data                         |
+| **Purpose**      | Triggers backend process to compile sales report                          |
+| **Input Format** | Button                                                                    |
+| **Valid Input**  | Not Applicable                                                            |
+| **Related I/O**  | REQ_IO0039, REQ_IO0041, REQ_IO0042                                        |
+| **Author**       | Yousef                                                                    |
+
+#### `REQ_IO0041` - Sales Report Table (Output)
+
+| **Field**        | **Detail**                                                               |
+|------------------|---------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                       |
+| **Item**         | Sales Report Table (Output)                                               |
+| **Description**  | Table showing list of transactions, dates, and totals                     |
+| **Purpose**      | Displays results of report request                                        |
+| **Input Format** | Not Applicable                                                            |
+| **Valid Input**  | System-generated                                                          |
+| **Related I/O**  | REQ_IO0040                                                                |
+| **Author**       | Yousef                                                                    |
+
+#### `REQ_IO0042` - Empty Result Message (Output)
+
+| **Field**        | **Detail**                                                                      |
+|------------------|----------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                              |
+| **Item**         | Empty Result Message (Output)                                                    |
+| **Description**  | Message shown when no data is available in selected range                        |
+| **Purpose**      | Informs vendor of absence of sales records                                       |
+| **Input Format** | Not Applicable                                                                   |
+| **Valid Input**  | "No sales data available for selected period"                                    |
+| **Related I/O**  | REQ_IO0040                                                                       |
+| **Author**       | Yousef                                                                           |
+
+---
+
+### 3.1.9 Generate Event Report
+
+Tables below define the interface components used in the generate event report user interface.
+
+#### `REQ_IO0043` - Event Dropdown (Input)
+
+| **Field**        | **Detail**                                                               |
+|------------------|---------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                       |
+| **Item**         | Event Dropdown (Input)                                                    |
+| **Description**  | Dropdown menu listing past events                                         |
+| **Purpose**      | Allows admin to select the event for report generation                    |
+| **Input Format** | Dropdown                                                                  |
+| **Valid Input**  | Valid past event names                                                    |
+| **Related I/O**  | REQ_IO0044, REQ_IO0045                                                    |
+| **Author**       | Yousef                                                                    |
+
+#### `REQ_IO0045` - Event Report Table (Output)
+
+| **Field**        | **Detail**                                                                       |
+|------------------|-----------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                               |
+| **Item**         | Event Report Table (Output)                                                       |
+| **Description**  | Table summarizing attendance and sales for selected event                         |
+| **Purpose**      | Presents full event metrics in readable format                                    |
+| **Input Format** | Not Applicable                                                                    |
+| **Valid Input**  | System-generated                                                                  |
+| **Related I/O**  | REQ_IO0044                                                                        |
+| **Author**       | Yousef                                                                            |
+
+#### `REQ_IO0046` - No Data Message (Output)
+
+| **Field**        | **Detail**                                                                       |
+|------------------|-----------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                               |
+| **Item**         | No Data Message (Output)                                                          |
+| **Description**  | Message shown when the selected event has no reportable data                      |
+| **Purpose**      | Informs admin of empty report case                                                |
+| **Input Format** | Not Applicable                                                                    |
+| **Valid Input**  | "No data available for this event"                                                |
+| **Related I/O**  | REQ_IO0044                                                                        |
+| **Author**       | Yousef                                                                            |
+
