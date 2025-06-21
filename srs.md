@@ -860,3 +860,4 @@ A sequence diagram is also provided to visually represent the process flow.
 #### Sequence Diagram – Event Check-In
 
 ![Sequence Diagram – Event Check-In](./images/event_check_in_sequence_diagram.png)
+ 
