@@ -492,3 +492,509 @@ Tables below define the interface components used in the manage events user inte
 | **Related I/O**  | REQ_IO0025 to REQ_IO0028                                                    |
 | **Author**       | Lim Ai Nee                                                                  |
 
+### 3.1.6 Manage Attendance
+
+Tables below define the interface components used in the manage attendance user interface.
+
+#### `REQ_IO0030` - Event Dropdown (Input)
+
+| **Field**        | **Detail**                                                         |
+|------------------|---------------------------------------------------------------------|
+| **Version**      | 1.0                                                                 |
+| **Item**         | Event Dropdown (Input)                                              |
+| **Description**  | Dropdown list of events for selection                               |
+| **Purpose**      | Allows admin to select the event for attendance management          |
+| **Input Format** | Dropdown                                                            |
+| **Valid Input**  | Valid event names from system                                       |
+| **Related I/O**  | REQ_IO0031, REQ_IO0032                                              |
+| **Author**       | Azhar                                                               |
+
+#### `REQ_IO0031` - Generate QR Button (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Generate QR Button (Input)                                                  |
+| **Description**  | A button to generate the event-specific check-in QR code                    |
+| **Purpose**      | Enables the admin to display the QR code used by students to check in       |
+| **Input Format** | Button                                                                      |
+| **Valid Input**  | Not Applicable                                                              |
+| **Related I/O**  | REQ_IO0030                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0032` - QR Code Image (Output)
+
+| **Field**        | **Detail**                                                         |
+|------------------|---------------------------------------------------------------------|
+| **Version**      | 1.0                                                                 |
+| **Item**         | QR Code Image (Output)                                              |
+| **Description**  | QR code generated for check-in                                      |
+| **Purpose**      | Displayed on the screen for scanning by students                    |
+| **Input Format** | Image                                                               |
+| **Valid Input**  | Auto-generated QR                                                   |
+| **Related I/O**  | REQ_IO0031                                                          |
+| **Author**       | Azhar                                                               |
+
+#### `REQ_IO0033` - Attendance List Table (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Attendance List Table (Output)                                              |
+| **Description**  | Table listing all students who checked in                                   |
+| **Purpose**      | Allows admin to view all registered attendees in real time                  |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | Auto-fetched                                                                |
+| **Related I/O**  | REQ_IO0030, REQ_IO0034                                                      |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0034` - Refresh Button (Input)
+
+| **Field**        | **Detail**                                                                       |
+|------------------|-----------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                               |
+| **Item**         | Refresh Button (Input)                                                            |
+| **Description**  | A button to reload the attendance list                                            |
+| **Purpose**      | Refreshes the displayed attendance table to include latest check-ins              |
+| **Input Format** | Button                                                                            |
+| **Valid Input**  | Not Applicable                                                                    |
+| **Related I/O**  | REQ_IO0033                                                                        |
+| **Author**       | Azhar                                                                             |
+
+---
+
+### 3.1.7 Manage Payment
+
+Tables below define the interface components used in the manage payment user interface.
+
+#### `REQ_IO0035` - Payment Amount Field (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Payment Amount Field (Input)                                                |
+| **Description**  | Text field where vendor inputs the amount to be charged                     |
+| **Purpose**      | Captures the transaction amount for a vendor sale                           |
+| **Input Format** | Decimal Number                                                              |
+| **Valid Input**  | Positive values (e.g., 1.00 – 999.99)                                        |
+| **Related I/O**  | REQ_IO0036                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0036` - Confirm Payment Button (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Confirm Payment Button (Input)                                              |
+| **Description**  | Button to submit the entered payment                                        |
+| **Purpose**      | Saves the transaction to the database                                       |
+| **Input Format** | Button                                                                      |
+| **Valid Input**  | Not Applicable                                                              |
+| **Related I/O**  | REQ_IO0035                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0037` - Success Message (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Success Message (Output)                                                    |
+| **Description**  | Message confirming successful payment submission                            |
+| **Purpose**      | Informs vendor that transaction was recorded                                |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | "Payment recorded successfully"                                             |
+| **Related I/O**  | REQ_IO0036                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0038` - Error Message (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Error Message (Output)                                                      |
+| **Description**  | Message shown if input is missing or invalid                                |
+| **Purpose**      | Warns vendor to enter a valid amount                                        |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | "Please enter a valid amount"                                               |
+| **Related I/O**  | REQ_IO0035                                                                  |
+| **Author**       | Azhar                                                                       |
+
+### 3.1.8 View Sales Report
+
+Tables below define the interface components used in the view sales report user interface.
+
+#### `REQ_IO0039` - Date Range Picker (Input)
+
+| **Field**        | **Detail**                                                               |
+|------------------|---------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                       |
+| **Item**         | Date Range Picker (Input)                                                 |
+| **Description**  | A pair of date fields (start and end)                                     |
+| **Purpose**      | Allows vendor to select the time period for the report                    |
+| **Input Format** | Date                                                                      |
+| **Valid Input**  | Valid past dates (from - to)                                              |
+| **Related I/O**  | REQ_IO0040                                                                |
+| **Author**       | Yousef                                                                    |
+
+#### `REQ_IO0040` - Generate Report Button (Input)
+
+| **Field**        | **Detail**                                                               |
+|------------------|---------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                       |
+| **Item**         | Generate Report Button (Input)                                            |
+| **Description**  | Button to submit the date range and retrieve data                         |
+| **Purpose**      | Triggers backend process to compile sales report                          |
+| **Input Format** | Button                                                                    |
+| **Valid Input**  | Not Applicable                                                            |
+| **Related I/O**  | REQ_IO0039, REQ_IO0041, REQ_IO0042                                        |
+| **Author**       | Yousef                                                                    |
+
+#### `REQ_IO0041` - Sales Report Table (Output)
+
+| **Field**        | **Detail**                                                               |
+|------------------|---------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                       |
+| **Item**         | Sales Report Table (Output)                                               |
+| **Description**  | Table showing list of transactions, dates, and totals                     |
+| **Purpose**      | Displays results of report request                                        |
+| **Input Format** | Not Applicable                                                            |
+| **Valid Input**  | System-generated                                                          |
+| **Related I/O**  | REQ_IO0040                                                                |
+| **Author**       | Yousef                                                                    |
+
+#### `REQ_IO0042` - Empty Result Message (Output)
+
+| **Field**        | **Detail**                                                                      |
+|------------------|----------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                              |
+| **Item**         | Empty Result Message (Output)                                                    |
+| **Description**  | Message shown when no data is available in selected range                        |
+| **Purpose**      | Informs vendor of absence of sales records                                       |
+| **Input Format** | Not Applicable                                                                   |
+| **Valid Input**  | "No sales data available for selected period"                                    |
+| **Related I/O**  | REQ_IO0040                                                                       |
+| **Author**       | Yousef                                                                           |
+
+---
+
+### 3.1.9 Generate Event Report
+
+Tables below define the interface components used in the generate event report user interface.
+
+#### `REQ_IO0043` - Event Dropdown (Input)
+
+| **Field**        | **Detail**                                                               |
+|------------------|---------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                       |
+| **Item**         | Event Dropdown (Input)                                                    |
+| **Description**  | Dropdown menu listing past events                                         |
+| **Purpose**      | Allows admin to select the event for report generation                    |
+| **Input Format** | Dropdown                                                                  |
+| **Valid Input**  | Valid past event names                                                    |
+| **Related I/O**  | REQ_IO0044, REQ_IO0045                                                    |
+| **Author**       | Yousef                                                                    |
+
+#### `REQ_IO0045` - Event Report Table (Output)
+
+| **Field**        | **Detail**                                                                       |
+|------------------|-----------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                               |
+| **Item**         | Event Report Table (Output)                                                       |
+| **Description**  | Table summarizing attendance and sales for selected event                         |
+| **Purpose**      | Presents full event metrics in readable format                                    |
+| **Input Format** | Not Applicable                                                                    |
+| **Valid Input**  | System-generated                                                                  |
+| **Related I/O**  | REQ_IO0044                                                                        |
+| **Author**       | Yousef                                                                            |
+
+#### `REQ_IO0046` - No Data Message (Output)
+
+| **Field**        | **Detail**                                                                       |
+|------------------|-----------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                               |
+| **Item**         | No Data Message (Output)                                                          |
+| **Description**  | Message shown when the selected event has no reportable data                      |
+| **Purpose**      | Informs admin of empty report case                                                |
+| **Input Format** | Not Applicable                                                                    |
+| **Valid Input**  | "No data available for this event"                                                |
+| **Related I/O**  | REQ_IO0044                                                                        |
+| **Author**       | Yousef                                                                            |
+
+## 3.2 Functions
+
+This section outlines the core functions of the Campus Event Check-In System.  
+The system is designed to facilitate event participation, registration, attendance tracking, and transaction processing for university-based events. It supports three primary user roles:  
+**Students**, **Vendors**, and **Admins**, each with distinct capabilities within the system.
+
+### 3.2.1 Functional Requirements
+
+The functional requirements of the system are organized by user role and are derived from the system’s high-level use cases. These requirements define what the system shall do to support event check-in, ticket management, payment processing, and administrative oversight.
+
+**Figure X** presents the **Use Case Diagram** of the Campus Event Check-In System, illustrating the interaction between system users and functional components.
+
+![Figure X. Use Case Diagram – Campus Event Check-In System](./images/use_case_diagram.png)
+
+Each use case represents a major system function. The following sub-sections (3.2.2) break down these use cases into detailed functional requirements.
+
+---
+
+### 3.2.2.1 Login
+
+This section defines the functional requirements and [use case specification](#) for the **Login** feature of the system.  
+It includes a detailed description of the system behavior, the primary actors involved, and the steps taken during the interaction.  
+A sequence diagram is also provided to visually represent the process flow.
+
+#### Functional Requirements
+
+| **Requirement ID** | **Version** | **Description**                                                                 |
+|--------------------|-------------|---------------------------------------------------------------------------------|
+| FR0001             | 2.0         | The system shall allow users (student, admin, vendor) to log in using their unique credentials. |
+| FR0002             | 2.0         | The system shall validate login credentials against the registered database records. |
+| FR0003             | 2.0         | The system shall display an error message if invalid credentials are entered.  |
+| FR0004             | 2.0         | The system shall prompt the user if required login fields are left empty.      |
+
+**Author:** Suliman
+
+---
+
+#### Use Case Specification – Login
+
+| **Use Case ID**    | UC001                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F001 – Login                     |
+| **Purpose**        | To authenticate users before granting access to the system |
+| **Actor**          | Student / Admin / Vendor         |
+| **Trigger**        | User opens the system and enters login credentials |
+| **Precondition**   | User must have a valid account   |
+| **Scenario Name**  | Login Process                    |
+| **Main Flow**      | 1. User opens the application  <br> 2. System displays the login form <br> 3. User enters credentials <br> 4. System checks input format (non-empty, correct format) <br> 5. System verifies credentials against the database <br> 6. If valid, the user is redirected to the correct interface |
+| **Alternate Flow – Invalid Credentials** | 5.1 System shows: “Invalid username or password” |
+| **Alternate Flow – Empty Fields** | 4.1 System shows: “Please fill in all required fields” |
+| **Author**         | Suliman                          |
+
+---
+
+#### Sequence Diagram – Login
+
+![Sequence Diagram – Login](./images/login_sequence_diagram.png)
+
+### 3.2.2.2 Event Registration
+
+This section defines the functional requirements and [use case specification](#) for the Event Registration feature of the system.  
+It includes a detailed description of the system behavior, the primary actors involved, and the steps taken during the interaction.  
+A sequence diagram is also provided to visually represent the process flow.
+
+#### Functional Requirements
+
+| **Requirement ID** | **Version** | **Description**                                                                 |
+|--------------------|-------------|---------------------------------------------------------------------------------|
+| FR0101             | 2.0         | The system shall allow students to register for available events.              |
+| FR0102             | 2.0         | The system shall check ticket availability before proceeding with registration.|
+| FR0103             | 2.0         | The system shall process the event registration payment using an integrated payment gateway. |
+| FR0104             | 2.0         | The system shall update the student’s registration record upon successful payment. |
+| FR0105             | 2.0         | The system shall notify the student of successful registration or payment failure. |
+
+**Author:** Suliman
+
+---
+
+#### Use Case Specification – Event Registration
+
+| **Use Case ID**    | UC002                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F002 – Event Registration        |
+| **Purpose**        | To allow students to register for events and complete payment |
+| **Actor**          | Student                          |
+| **Trigger**        | Student selects an event and initiates registration |
+| **Precondition**   | Student must be logged in and the event must have available tickets |
+| **Scenario Name**  | Registration Process             |
+| **Main Flow**      | 1. Student opens the event list <br> 2. Student selects an event to register for <br> 3. System checks ticket availability <br> 4. System prompts for payment <br> 5. Student completes payment <br> 6. System verifies payment <br> 7. System updates registration record <br> 8. Student receives confirmation |
+| **Alternate Flow – Tickets Unavailable** | 3.1 System shows: “Tickets are sold out” |
+| **Alternate Flow – Payment Failed** | 6.1 System shows: “Payment unsuccessful. Please try again.” |
+| **Author**         | Suliman                          |
+
+---
+
+#### Sequence Diagram – Event Registration
+
+![Sequence Diagram – Event Registration](./images/event_registration_sequence_diagram.png)
+
+### 3.2.2.3 Event Check-In
+
+This section defines the functional requirements and [use case specification](#) for the Event Check-In feature of the system.  
+It includes a detailed description of the system behavior, the primary actors involved, and the steps taken during the interaction.  
+A sequence diagram is also provided to visually represent the process flow.
+
+#### Functional Requirements
+
+| **Requirement ID** | **Version** | **Description**                                                                          |
+|--------------------|-------------|------------------------------------------------------------------------------------------|
+| FR0301             | 2.0         | The system shall allow students to check in to events for which they are registered.     |
+| FR0302             | 2.0         | The system shall verify the student’s registration and identity during check-in.         |
+| FR0303             | 2.0         | The system shall mark the student as checked in and log the check-in time.              |
+| FR0304             | 2.0         | The system shall prevent check-in for students who are not registered.                  |
+
+**Author:** Suliman
+
+---
+
+#### Use Case Specification – Event Check-In
+
+| **Use Case ID**    | UC003                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F003 – Event Check-In            |
+| **Purpose**        | To allow students to check in at the event using their registration and identity |
+| **Actor**          | Student                          |
+| **Trigger**        | Student scans a QR code at the event venue |
+| **Precondition**   | Student must be registered for the event and have a valid ticket |
+| **Scenario Name**  | Event Check-In Process           |
+| **Main Flow**      | 1. Student arrives at the event venue <br> 2. Student scans the QR code displayed at the check-in point <br> 3. System verifies student registration and identity <br> 4. If verification succeeds, the system logs check-in and records the timestamp <br> 5. Student is allowed to enter the event |
+| **Alternate Flow – Not Registered** | 3.1 System shows: “You are not registered for this event” |
+| **Author**         | Suliman                          |
+
+---
+
+#### Sequence Diagram – Event Check-In
+
+![Sequence Diagram – Event Check-In](./images/event_check_in_sequence_diagram.png)
+
+### 3.2.2.4 Make Payment
+
+This section defines the functional requirements and [use case specification](#) for the **Make Payment** feature of the system.
+
+In earlier versions of the SRS, this was referred to as **Process Student Payment**, primarily intended for handling payments related to event registration. However, this is now handled as part of the **Event Registration** use case.
+
+The **Make Payment** feature now focuses only on **on-site vendor payments**, such as food or merchandise during events.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0401 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow students to initiate payments for purchases made at event venues. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0402 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall process the payment via an integrated payment gateway. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0403 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall update the payment database upon successful transaction. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0404 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall notify students of successful or failed payment status. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+#### Use Case Specification – Make Payment
+
+| **Use Case ID**    | UC004                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F004 – Make Payment              |
+| **Purpose**        | To allow students to make payments to vendors during events |
+| **Actor**          | Student                          |
+| **Trigger**        | Student selects a vendor or scans a vendor’s QR code to initiate payment |
+| **Precondition**   | Student must be logged in and have a valid payment method |
+| **Main Flow**      | 1. Student scans vendor QR code or selects vendor <br> 2. System prompts for payment details <br> 3. Student enters payment amount and confirms <br> 4. System processes the payment via the gateway <br> 5. If payment is successful, the database is updated and student is notified |
+| **Alternate Flow – Payment Failed** | 5.1 System displays: “Payment failed. Please try again.” |
+| **Author**         | Lim Ai Nee                        |
+
+---
+
+![Sequence Diagram – Make Payment](./images/make_payment_sequence_diagram.png)
+
+---
+
+### 3.2.2.5 Manage Event
+
+This section defines the functional requirements and [use case specification](#) for the **Manage Event** feature.
+
+This includes actions such as **Create**, **Edit**, and **Delete Event**, now modeled as extensions under the admin’s event management functionality.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0501 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow admins to access an event management interface. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0502 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow admins to create new events by entering required details. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0503 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow admins to modify existing events. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0504 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow admins to delete events that are no longer needed. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0505 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall validate event details before saving changes. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+| **Requirement ID** | FR0506 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall update the event records in the database after each operation. |
+| **Author**         | Lim Ai Nee |
+
+---
+
+#### Use Case Specification – Manage Event
+
+| **Use Case ID**    | UC005                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F005 – Manage Events             |
+| **Purpose**        | To enable admins to create, edit, or delete event records |
+| **Actor**          | Admin                            |
+| **Trigger**        | Admin opens the event management interface |
+| **Precondition**   | Admin must be logged in with event management permissions |
+| **Main Flow**      | 1. Admin navigates to the event management section <br> 2. System displays a list of existing events <br> 3. Admin selects one of the following actions: <br> • Create new event <br> • Edit an existing event <br> • Delete an event <br> 4. System displays the relevant form or confirmation prompt <br> 5. Admin submits the action <br> 6. System validates input and saves changes to the database <br> 7. System displays a success message |
+| **Alternate Flow – Cancelled Action** | 4.1 Admin cancels the action → return to event list |
+| **Alternate Flow – Invalid Input**    | 6.1 System displays: “Please fill in all required fields” |
+| **Author**         | Lim Ai Nee                        |
+
+---
+
+![Sequence Diagram – Manage Events](./images/manage_events_sequence_diagram.png)
+
