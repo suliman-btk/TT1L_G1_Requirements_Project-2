@@ -82,7 +82,6 @@ Table 2. User roles and required competencies
 
 *Table 3. Glossary of key terms*
 
-
 ## 3. Requirements
 
 ### 3.1 External Interfaces
@@ -287,3 +286,336 @@ Tables below define the interface components used in the event check-in user int
 | **Valid Input**  | "You are not registered for this event"                                     |
 | **Related I/O**  | REQ_IO0011                                                                  |
 | **Author**       | Suliman                                                                     |
+
+### 3.1.4 Make Payment
+
+Tables below define the interface components used in the make payment user interface.
+
+#### `REQ_IO0015` - QR Scanner Button (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | QR Scanner Button (Input)                                                   |
+| **Description**  | A button to activate QR code scanner to identify the vendor                 |
+| **Purpose**      | Initiates the process of identifying a vendor for payment                   |
+| **Input Format** | Button                                                                      |
+| **Valid Input**  | Not Applicable                                                              |
+| **Related I/O**  | REQ_IO0016                                                                  |
+| **Author**       | Lim Ai Nee                                                                  |
+
+#### `REQ_IO0016` - Vendor QR Code (Input)
+
+| **Field**        | **Detail**                                                                       |
+|------------------|-----------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                               |
+| **Item**         | Vendor QR Code (Input)                                                            |
+| **Description**  | Encoded vendor ID or payment session token                                        |
+| **Purpose**      | Identifies which vendor the payment is intended for                               |
+| **Input Format** | String                                                                            |
+| **Valid Input**  | Valid vendor ID or session token                                                  |
+| **Related I/O**  | REQ_IO0015                                                                        |
+| **Author**       | Lim Ai Nee                                                                        |
+
+#### `REQ_IO0017` - Amount Field (Input)
+
+| **Field**        | **Detail**                                                                   |
+|------------------|-------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                           |
+| **Item**         | Amount Field (Input)                                                          |
+| **Description**  | A numeric text field for entering payment amount                              |
+| **Purpose**      | Allows user to specify how much to pay the vendor                             |
+| **Input Format** | Number                                                                        |
+| **Valid Input**  | Positive decimal number (e.g., 1.00 to 999.99)                                 |
+| **Related I/O**  | REQ_IO0018                                                                    |
+| **Author**       | Lim Ai Nee                                                                    |
+
+#### `REQ_IO0018` - Submit Payment Button (Input)
+
+| **Field**        | **Detail**                                                           |
+|------------------|-----------------------------------------------------------------------|
+| **Version**      | 1.0                                                                   |
+| **Item**         | Submit Payment Button (Input)                                         |
+| **Description**  | A button to submit payment request                                    |
+| **Purpose**      | Confirms and initiates the payment                                    |
+| **Input Format** | Button                                                                |
+| **Valid Input**  | Not Applicable                                                        |
+| **Related I/O**  | REQ_IO0017                                                            |
+| **Author**       | Lim Ai Nee                                                            |
+
+#### `REQ_IO0019` - Payment Confirmation Message (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Payment Confirmation Message (Output)                                       |
+| **Description**  | A success message displayed after payment completion                        |
+| **Purpose**      | Confirms that the payment has been processed                                |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | "Payment successful"                                                        |
+| **Related I/O**  | REQ_IO0018                                                                  |
+| **Author**       | Lim Ai Nee                                                                  |
+
+#### `REQ_IO0020` - Payment Error Message (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Payment Error Message (Output)                                              |
+| **Description**  | Message shown when payment fails                                            |
+| **Purpose**      | Alerts user to retry or check their input                                   |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | "Payment failed. Please try again."                                         |
+| **Related I/O**  | REQ_IO0018                                                                  |
+| **Author**       | Lim Ai Nee                                                                  |
+
+---
+
+### 3.1.5 Manage Events
+
+Tables below define the interface components used in the manage events user interface.
+
+#### `REQ_IO0021` - Event Table (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Event Table (Output)                                                        |
+| **Description**  | A table displaying all existing events with action buttons                  |
+| **Purpose**      | Allows admins to view, edit, or delete existing events                      |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | Not Applicable                                                              |
+| **Related I/O**  | REQ_IO0022, REQ_IO0023, REQ_IO0024                                          |
+| **Author**       | Lim Ai Nee                                                                  |
+
+#### `REQ_IO0022` - Create Button (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Create Button (Input)                                                       |
+| **Description**  | A button labeled “Create Event”                                             |
+| **Purpose**      | Opens a form/modal to create a new event                                    |
+| **Input Format** | Button                                                                      |
+| **Valid Input**  | Not Applicable                                                              |
+| **Related I/O**  | REQ_IO0025 to REQ_IO0029                                                    |
+| **Author**       | Lim Ai Nee                                                                  |
+
+#### `REQ_IO0023` - Edit Button (Input)
+
+| **Field**        | **Detail**                                                                   |
+|------------------|-------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                           |
+| **Item**         | Edit Button (Input)                                                           |
+| **Description**  | A button next to each event in the table to edit it                          |
+| **Purpose**      | Opens the form pre-filled with event details for editing                      |
+| **Input Format** | Button                                                                        |
+| **Valid Input**  | Not Applicable                                                                |
+| **Related I/O**  | REQ_IO0025 to REQ_IO0029                                                      |
+| **Author**       | Lim Ai Nee                                                                    |
+
+#### `REQ_IO0024` - Delete Button (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Delete Button (Input)                                                       |
+| **Description**  | A button next to each event for deletion                                    |
+| **Purpose**      | Deletes the selected event after confirmation                               |
+| **Input Format** | Button                                                                      |
+| **Valid Input**  | Not Applicable                                                              |
+| **Related I/O**  | None                                                                        |
+| **Author**       | Lim Ai Nee                                                                  |
+
+#### `REQ_IO0025` - Event Name Field (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Event Name Field (Input)                                                    |
+| **Description**  | Text field to enter the event name                                          |
+| **Purpose**      | Specifies the name of the event                                             |
+| **Input Format** | String                                                                      |
+| **Valid Input**  | Alphabetic + alphanumeric string (3–50 characters)                          |
+| **Related I/O**  | REQ_IO0022, REQ_IO0023                                                      |
+| **Author**       | Lim Ai Nee                                                                  |
+
+#### `REQ_IO0026` - Event Date Field (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Event Date Field (Input)                                                    |
+| **Description**  | Date picker for selecting the event date                                    |
+| **Purpose**      | Specifies when the event will occur                                         |
+| **Input Format** | Date                                                                        |
+| **Valid Input**  | Any valid future date                                                       |
+| **Related I/O**  | REQ_IO0022, REQ_IO0023                                                      |
+| **Author**       | Lim Ai Nee                                                                  |
+
+#### `REQ_IO0027` - Location Field (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Location Field (Input)                                                      |
+| **Description**  | Text field to enter the location of the event                               |
+| **Purpose**      | Specifies the venue where the event will take place                         |
+| **Input Format** | String                                                                      |
+| **Valid Input**  | Free-text, max 100 characters                                               |
+| **Related I/O**  | REQ_IO0022, REQ_IO0023                                                      |
+| **Author**       | Lim Ai Nee                                                                  |
+
+#### `REQ_IO0028` - Capacity Field (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Capacity Field (Input)                                                      |
+| **Description**  | Numeric field to define max number of attendees                             |
+| **Purpose**      | Limits how many students can register                                       |
+| **Input Format** | Integer                                                                     |
+| **Valid Input**  | 1–1000                                                                      |
+| **Related I/O**  | REQ_IO0022, REQ_IO0023                                                      |
+| **Author**       | Lim Ai Nee                                                                  |
+
+#### `REQ_IO0029` - Save/Update Button (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Save/Update Button (Input)                                                  |
+| **Description**  | A button to save or update event information                                |
+| **Purpose**      | Commits the event changes to the system                                     |
+| **Input Format** | Button                                                                      |
+| **Valid Input**  | Not Applicable                                                              |
+| **Related I/O**  | REQ_IO0025 to REQ_IO0028                                                    |
+| **Author**       | Lim Ai Nee                                                                  |
+
+### 3.1.6 Manage Attendance
+
+Tables below define the interface components used in the manage attendance user interface.
+
+#### `REQ_IO0030` - Event Dropdown (Input)
+
+| **Field**        | **Detail**                                                         |
+|------------------|---------------------------------------------------------------------|
+| **Version**      | 1.0                                                                 |
+| **Item**         | Event Dropdown (Input)                                              |
+| **Description**  | Dropdown list of events for selection                               |
+| **Purpose**      | Allows admin to select the event for attendance management          |
+| **Input Format** | Dropdown                                                            |
+| **Valid Input**  | Valid event names from system                                       |
+| **Related I/O**  | REQ_IO0031, REQ_IO0032                                              |
+| **Author**       | Azhar                                                               |
+
+#### `REQ_IO0031` - Generate QR Button (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Generate QR Button (Input)                                                  |
+| **Description**  | A button to generate the event-specific check-in QR code                    |
+| **Purpose**      | Enables the admin to display the QR code used by students to check in       |
+| **Input Format** | Button                                                                      |
+| **Valid Input**  | Not Applicable                                                              |
+| **Related I/O**  | REQ_IO0030                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0032` - QR Code Image (Output)
+
+| **Field**        | **Detail**                                                         |
+|------------------|---------------------------------------------------------------------|
+| **Version**      | 1.0                                                                 |
+| **Item**         | QR Code Image (Output)                                              |
+| **Description**  | QR code generated for check-in                                      |
+| **Purpose**      | Displayed on the screen for scanning by students                    |
+| **Input Format** | Image                                                               |
+| **Valid Input**  | Auto-generated QR                                                   |
+| **Related I/O**  | REQ_IO0031                                                          |
+| **Author**       | Azhar                                                               |
+
+#### `REQ_IO0033` - Attendance List Table (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Attendance List Table (Output)                                              |
+| **Description**  | Table listing all students who checked in                                   |
+| **Purpose**      | Allows admin to view all registered attendees in real time                  |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | Auto-fetched                                                                |
+| **Related I/O**  | REQ_IO0030, REQ_IO0034                                                      |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0034` - Refresh Button (Input)
+
+| **Field**        | **Detail**                                                                       |
+|------------------|-----------------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                               |
+| **Item**         | Refresh Button (Input)                                                            |
+| **Description**  | A button to reload the attendance list                                            |
+| **Purpose**      | Refreshes the displayed attendance table to include latest check-ins              |
+| **Input Format** | Button                                                                            |
+| **Valid Input**  | Not Applicable                                                                    |
+| **Related I/O**  | REQ_IO0033                                                                        |
+| **Author**       | Azhar                                                                             |
+
+---
+
+### 3.1.7 Manage Payment
+
+Tables below define the interface components used in the manage payment user interface.
+
+#### `REQ_IO0035` - Payment Amount Field (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Payment Amount Field (Input)                                                |
+| **Description**  | Text field where vendor inputs the amount to be charged                     |
+| **Purpose**      | Captures the transaction amount for a vendor sale                           |
+| **Input Format** | Decimal Number                                                              |
+| **Valid Input**  | Positive values (e.g., 1.00 – 999.99)                                        |
+| **Related I/O**  | REQ_IO0036                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0036` - Confirm Payment Button (Input)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Confirm Payment Button (Input)                                              |
+| **Description**  | Button to submit the entered payment                                        |
+| **Purpose**      | Saves the transaction to the database                                       |
+| **Input Format** | Button                                                                      |
+| **Valid Input**  | Not Applicable                                                              |
+| **Related I/O**  | REQ_IO0035                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0037` - Success Message (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Success Message (Output)                                                    |
+| **Description**  | Message confirming successful payment submission                            |
+| **Purpose**      | Informs vendor that transaction was recorded                                |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | "Payment recorded successfully"                                             |
+| **Related I/O**  | REQ_IO0036                                                                  |
+| **Author**       | Azhar                                                                       |
+
+#### `REQ_IO0038` - Error Message (Output)
+
+| **Field**        | **Detail**                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| **Version**      | 1.0                                                                         |
+| **Item**         | Error Message (Output)                                                      |
+| **Description**  | Message shown if input is missing or invalid                                |
+| **Purpose**      | Warns vendor to enter a valid amount                                        |
+| **Input Format** | Not Applicable                                                              |
+| **Valid Input**  | "Please enter a valid amount"                                               |
+| **Related I/O**  | REQ_IO0035                                                                  |
+| **Author**       | Azhar                                                                       |
+
