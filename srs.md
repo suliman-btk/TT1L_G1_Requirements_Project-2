@@ -997,4 +997,3 @@ This includes actions such as **Create**, **Edit**, and **Delete Event**, now mo
 ---
 
 ![Sequence Diagram – Manage Events](./images/manage_events_sequence_diagram.png)
-
