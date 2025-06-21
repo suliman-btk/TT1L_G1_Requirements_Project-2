@@ -997,3 +997,345 @@ This includes actions such as **Create**, **Edit**, and **Delete Event**, now mo
 ---
 
 ![Sequence Diagram – Manage Events](./images/manage_events_sequence_diagram.png)
+
+
+### 3.2.2.6 Manage Attendance
+
+This section defines the functional requirements and [use case specification](#) for the **Manage Attendance** feature.
+
+In this improved version, the feature is split into two interactions: **QR code generation** and **attendance list retrieval**, using real-time data integration.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0601 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow admins to generate a unique QR code for event check-in. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0602 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall retrieve check-in logs of students for a selected event. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0603 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall retrieve student details associated with each check-in record. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0604 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall display the list of students who have checked in, along with their basic information. |
+| **Author**         | Azhar  |
+
+---
+
+#### Use Case Specification – Manage Attendance
+
+| **Use Case ID**    | UC006                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F006 – Manage Attendance         |
+| **Purpose**        | To enable admins to manage student attendance during events by generating check-in QR codes and reviewing attendance records |
+| **Actor**          | Admin                            |
+| **Trigger**        | Admin accesses the attendance management interface |
+| **Precondition**   | Admin must be logged in and have access to an active event |
+| **Main Flow**      | 1. Admin opens the attendance management tab <br> 2. Selects an event <br> 3. System generates a unique QR code for check-in <br> 4. Admin displays the QR code at the event <br> 5. Admin requests the attendance list <br> 6. System retrieves check-in logs from the event database <br> 7. System retrieves student details from the student database <br> 8. System displays the full list of attendees with names and check-in timestamps |
+| **Alternate Flow – No Check-ins Yet** | 6.1 System displays: “No students have checked in yet” |
+| **Author**         | Azhar                            |
+
+---
+
+![Sequence Diagram – Manage Attendance](./images/manage_attendance_sequence_diagram.png)
+
+---
+
+### 3.2.2.7 Manage Payment (Vendor)
+
+This section defines the functional requirements and [use case specification](#) for the **Manage Payment** feature used by vendors.
+
+This updated version supports real-time entry, backend logging, and transaction confirmation.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0701 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow vendors to input payment amounts during transactions. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0702 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall process and record each payment in the payment database. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0703 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall confirm that a transaction has been saved before updating the interface. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0704 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow vendors to mark a sale as complete and begin a new transaction. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0705 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall display an error message if the entered amount field is empty or invalid. |
+| **Author**         | Azhar  |
+
+---
+
+#### Use Case Specification – Vendor Payment Management
+
+| **Use Case ID**    | UC007                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F007 – Vendor Payment Management |
+| **Purpose**        | To enable vendors to manage on-site payments during events |
+| **Actor**          | Vendor                           |
+| **Trigger**        | Vendor opens the in-app payment interface |
+| **Precondition**   | Vendor must be logged in and registered to the event |
+| **Main Flow**      | 1. Vendor opens the vendor dashboard <br> 2. Vendor clicks "Start New Sale" <br> 3. Vendor enters the total amount to be paid <br> 4. System records the transaction in the payment database <br> 5. System confirms and updates the dashboard with the new payment entry <br> 6. Vendor can start another transaction |
+| **Alternate Flow – Invalid/Empty Field** | 3.1 System displays: “Please enter a valid amount” |
+| **Author**         | Azhar                            |
+
+---
+
+![Sequence Diagram – Vendor Manage Payment](./images/manage_payment_sequence_diagram.png)
+
+### 3.2.2.8 View Sales Report
+
+This section defines the functional requirements and [use case specification](#) for the **View Sales Report** feature for vendors. It now explicitly reflects backend interaction and error handling for missing data.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0801 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow vendors to request a sales report based on a defined period. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0802 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall retrieve the vendor’s sales data from the database. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0803 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall generate a structured report based on retrieved sales records. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0804 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall display the report to the vendor in a readable format. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0805 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall show an appropriate message if no sales data is found for the selected period. |
+| **Author**         | Yousef |
+
+---
+
+#### Use Case Specification – View Sales Report
+
+| **Use Case ID**    | UC008                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F008 – View Sales Report         |
+| **Purpose**        | To enable vendors to view and analyze their sales activity for a specific date range |
+| **Actor**          | Vendor                           |
+| **Trigger**        | Vendor initiates a sales report request from the dashboard |
+| **Precondition**   | Vendor must be logged in and have recorded transactions |
+| **Main Flow**      | 1. Vendor opens the report section from the dashboard <br> 2. Vendor selects a date range and clicks “Generate Report” <br> 3. System retrieves relevant sales data from the database <br> 4. System generates and formats the report <br> 5. System displays the report to the vendor |
+| **Alternate Flow – No Sales Found** | 3.1 System displays: “No sales data available for the selected period” |
+| **Author**         | Yousef                            |
+
+---
+
+![Sequence Diagram – View Sales Report](./images/view_sales_report_sequence_diagram.png)
+
+---
+
+### 3.2.2.9 Generate Event Report
+
+This section defines the functional requirements and [use case specification](#) for the **Generate Event Report** feature.
+
+This is the first dedicated version of this functionality, now modeled as its own use case for clarity and backend integration.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0901 |
+|--------------------|--------|
+| **Version**        | 1.0    |
+| **Description**    | The system shall allow admins to generate reports for specific events. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0902 |
+|--------------------|--------|
+| **Version**        | 1.0    |
+| **Description**    | The system shall retrieve all relevant attendance and transaction data from the database. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0903 |
+|--------------------|--------|
+| **Version**        | 1.0    |
+| **Description**    | The system shall compile the data into a readable and exportable format. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0904 |
+|--------------------|--------|
+| **Version**        | 1.0    |
+| **Description**    | The system shall allow the admin to view and optionally download the report. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0905 |
+|--------------------|--------|
+| **Version**        | 1.0    |
+| **Description**    | The system shall notify the admin if no data is available for the selected event. |
+| **Author**         | Yousef |
+
+---
+
+#### Use Case Specification – Generate Event Report
+
+| **Use Case ID**    | UC009                             |
+|--------------------|-----------------------------------|
+| **Version**        | 1.0                               |
+| **Feature**        | F009 – Generate Event Report      |
+| **Purpose**        | To allow admins to generate and access post-event reports including attendance and sales data |
+| **Actor**          | Admin                             |
+| **Trigger**        | Admin accesses the report section and selects an event |
+| **Precondition**   | Admin must be logged in and the selected event must have at least one data record (attendance or transaction) |
+| **Main Flow**      | 1. Admin opens the reporting interface <br> 2. Admin selects an event to generate a report for <br> 3. System retrieves attendance and sales data related to that event <br> 4. System formats and compiles the report <br> 5. System displays the report and allows optional download |
+| **Alternate Flow – No Data** | 3.1 System displays: “No reportable data available for this event” |
+| **Author**         | Yousef                             |
+
+---
+
+![Sequence Diagram – Generate Event Report](./images/generate_event_report_sequence_diagram.png)
+
+
+## IMPORTANT *Suliman: THIS PART SHOULD BE MOVED UP WHILE COMBINING ALL THE WORK*
+
+### 1.3.1.1 System Interface
+
+| Requirement ID | Description | Priority | Author |
+|----------------|-------------|----------|--------|
+| REQ_SI001 | The system must be linked to the university’s student database via an authenticated API or secure connection to validate student identity in real-time. | High | Suliman |
+| REQ_SI002 | The system will integrate with Stripe, a PCI-compliant digital payment service, to allow vendors to process purchases using debit, credit, or e-wallets. | High | Suliman |
+| REQ_SI003 | Admin interfaces must connect to the centralized backend to retrieve and update data related to events, tickets, and attendance. | Medium | Suliman |
+| REQ_SI004 | All check-ins, purchases, and admin actions will be logged securely. | High | Suliman |
+
+### 1.3.1.2 User Interface
+
+| Interface ID | Description | Priority | Author |
+|--------------|-------------|----------|--------|
+| REQ_UI001 | The system shall offer a responsive design that adjusts to different screen sizes and devices. | High | Suliman |
+| REQ_UI002 | Interfaces must maintain consistency in layout, colors, icons, and interaction patterns to support usability. | High | Suliman |
+| REQ_UI003 | Navigation must be simple and intuitive, allowing users to complete tasks with minimal steps. | High | Suliman |
+| REQ_UI004 | All forms shall provide real-time validation feedback, including helpful error messages for incorrect input. | Medium | Suliman |
+| REQ_UI005 | Visual feedback (e.g., success, loading, or failure indicators) must be provided for all user actions. | Medium | Suliman |
+| REQ_UI006 | Text fields, buttons, tables, and other components must be clearly labeled and accessible. | High | Suliman |
+| REQ_UI007 | QR code-based interactions (for check-in and vendor payments) must be integrated seamlessly into the mobile interface. | High | Suliman |
+| REQ_UI008 | The UI must be accessible, supporting standard keyboard navigation and readable contrast ratios. | High | Suliman |
+| REQ_UI009 | The system should allow for language localization in future versions to support multilingual users. | Low | Suliman |
+
+### 1.3.1.3 Hardware Interface
+
+| Interface ID | Description | Priority | Author |
+|--------------|-------------|----------|--------|
+| REQ_HW001 | Student devices must be smartphones (Android/iOS) equipped with cameras to enable QR scanning at event check-in. | High | Suliman |
+| REQ_HW002 | Student devices must be internet-enabled, supporting either Wi-Fi or mobile data connections. | High | Suliman |
+| REQ_HW003 | The app will access the camera for QR scanning functionality on student devices. | High | Suliman |
+| REQ_HW004 | Vendor devices must be smartphones or tablets capable of managing sales and logging payments. | High | Suliman |
+| REQ_HW005 | Vendor devices must have reliable internet connectivity to ensure real-time transaction logging. | High | Suliman |
+| REQ_HW006 | Admins will use laptops or desktops to manage events, generate reports, and control attendance. | High | Suliman |
+| REQ_HW007 | Admin devices must support standard web browsers and secure system access protocols. | High | Suliman |
+| REQ_HW008 | Admins may use tablets or laptops to display QR codes for check-in purposes. | Medium | Suliman |
+| REQ_HW009 | QR code display devices should have high-resolution displays to ensure easy and accurate scanning. | Medium | Suliman |
+| REQ_HW010 | The backend system must be hosted on a university-managed server infrastructure. | High | Suliman |
+| REQ_HW011 | All client-server communications must be secured using HTTPS with TLS encryption. | High | Suliman |
+
+### 1.3.1.4 Software Interface
+
+| Interface ID | Description | Priority | Author |
+|--------------|-------------|----------|--------|
+| REQ_SW001 | The system shall connect to the university’s student information system via a hosted API to verify credentials during login and check-in. | High | Suliman |
+| REQ_SW002 | The system shall integrate with Stripe as a payment gateway to manage payment sessions, confirm transactions, and verify payment success. | High | Suliman |
+| REQ_SW003 | Communication with Stripe shall occur over HTTPS, with API keys securely stored in the backend system. | High | Suliman |
+| REQ_SW004 | The system shall use the `qr_flutter` library or an equivalent package to generate dynamic QR codes for each event. | Medium | Suliman |
+| REQ_SW005 | Generated QR codes shall include encrypted event IDs and be displayed in real-time during check-in. | High | Suliman |
+| REQ_SW006 | The system shall utilize the Elastic Stack (Elasticsearch, Logstash, Kibana) for backend logging of check-ins, transactions, and admin activities. | Medium | Suliman |
+| REQ_SW007 | All logs shall be pushed to Logstash and visualized through Kibana dashboards for monitoring and analysis. | Medium | Suliman |
+
+### 1.3.1.5 Communication Interfaces
+
+| Interface ID | Description | Priority | Author |
+|--------------|-------------|----------|--------|
+| REQ_COM001 | Communication with the student database shall use HTTPS over a REST API to securely validate student records during login and check-in. | High | Suliman |
+| REQ_COM002 | Payment transactions shall be transmitted securely using HTTPS with TLS encryption between student devices and the Stripe system. | High | Suliman |
+| REQ_COM003 | Internal system communications, including QR code generation, event syncing, and logging, shall use HTTPS to ensure secure operations. | High | Suliman |
+| REQ_COM004 | All frontend interfaces for students, vendors, and admins shall communicate with the backend over HTTPS via web-based protocols to ensure secure and encrypted interactions. | High | Suliman |
+
+### 3.3 Performance Requirements
+
+| Requirement ID | Description | Priority | Author |
+|----------------|-------------|----------|--------|
+| REQ_P001 | The system must support up to 300 concurrent users without any noticeable performance degradation. | High | Lim Ai Nee |
+| REQ_P002 | Check-in validation and ticket verification must complete in under 5 seconds. | High | Lim Ai Nee |
+| REQ_P003 | All on-site transactions (e.g., purchases from vendors) must be processed accurately and efficiently. | High | Lim Ai Nee |
+| REQ_P004 | Upon successful registration, the event ticket confirmation should be issued within 10 seconds of form submission. | Medium | Lim Ai Nee |
+| REQ_P005 | The system must scale to support up to 3,000 total users, maintaining stability and preventing data loss. | Medium | Lim Ai Nee |
+| REQ_P006 | Any changes made by admins (such as event updates or ticket changes) must synchronize across all devices. | Medium | Lim Ai Nee |
+
+### 3.4 Usability Requirements
+
+| Requirement ID | Description | Priority | Author |
+|----------------|-------------|----------|--------|
+| REQ_UR001 | The system must deliver a user-friendly interface accessible on both web and mobile platforms. | High | Lim Ai Nee |
+| REQ_UR002 | All users (students, vendors, and admins) must be able to complete their tasks (e.g., check-in, view sales, register for events) without confusion or error. | Medium | Lim Ai Nee |
+| REQ_UR003 | The user interface should maintain readable fonts, well-organized layouts, and support keyboard navigation to ensure accessibility. | High | Lim Ai Nee |
+| REQ_UR004 | Error messages must be clear and informative, providing users with the guidance to recover from errors independently. | High | Lim Ai Nee |
