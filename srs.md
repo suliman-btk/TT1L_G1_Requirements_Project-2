@@ -997,3 +997,131 @@ This includes actions such as **Create**, **Edit**, and **Delete Event**, now mo
 ---
 
 ![Sequence Diagram – Manage Events](./images/manage_events_sequence_diagram.png)
+
+
+### 3.2.2.6 Manage Attendance
+
+This section defines the functional requirements and [use case specification](#) for the **Manage Attendance** feature.
+
+In this improved version, the feature is split into two interactions: **QR code generation** and **attendance list retrieval**, using real-time data integration.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0601 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow admins to generate a unique QR code for event check-in. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0602 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall retrieve check-in logs of students for a selected event. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0603 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall retrieve student details associated with each check-in record. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0604 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall display the list of students who have checked in, along with their basic information. |
+| **Author**         | Azhar  |
+
+---
+
+#### Use Case Specification – Manage Attendance
+
+| **Use Case ID**    | UC006                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F006 – Manage Attendance         |
+| **Purpose**        | To enable admins to manage student attendance during events by generating check-in QR codes and reviewing attendance records |
+| **Actor**          | Admin                            |
+| **Trigger**        | Admin accesses the attendance management interface |
+| **Precondition**   | Admin must be logged in and have access to an active event |
+| **Main Flow**      | 1. Admin opens the attendance management tab <br> 2. Selects an event <br> 3. System generates a unique QR code for check-in <br> 4. Admin displays the QR code at the event <br> 5. Admin requests the attendance list <br> 6. System retrieves check-in logs from the event database <br> 7. System retrieves student details from the student database <br> 8. System displays the full list of attendees with names and check-in timestamps |
+| **Alternate Flow – No Check-ins Yet** | 6.1 System displays: “No students have checked in yet” |
+| **Author**         | Azhar                            |
+
+---
+
+![Sequence Diagram – Manage Attendance](./images/manage_attendance_sequence_diagram.png)
+
+---
+
+### 3.2.2.7 Manage Payment (Vendor)
+
+This section defines the functional requirements and [use case specification](#) for the **Manage Payment** feature used by vendors.
+
+This updated version supports real-time entry, backend logging, and transaction confirmation.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0701 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow vendors to input payment amounts during transactions. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0702 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall process and record each payment in the payment database. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0703 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall confirm that a transaction has been saved before updating the interface. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0704 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow vendors to mark a sale as complete and begin a new transaction. |
+| **Author**         | Azhar  |
+
+---
+
+| **Requirement ID** | FR0705 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall display an error message if the entered amount field is empty or invalid. |
+| **Author**         | Azhar  |
+
+---
+
+#### Use Case Specification – Vendor Payment Management
+
+| **Use Case ID**    | UC007                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F007 – Vendor Payment Management |
+| **Purpose**        | To enable vendors to manage on-site payments during events |
+| **Actor**          | Vendor                           |
+| **Trigger**        | Vendor opens the in-app payment interface |
+| **Precondition**   | Vendor must be logged in and registered to the event |
+| **Main Flow**      | 1. Vendor opens the vendor dashboard <br> 2. Vendor clicks "Start New Sale" <br> 3. Vendor enters the total amount to be paid <br> 4. System records the transaction in the payment database <br> 5. System confirms and updates the dashboard with the new payment entry <br> 6. Vendor can start another transaction |
+| **Alternate Flow – Invalid/Empty Field** | 3.1 System displays: “Please enter a valid amount” |
+| **Author**         | Azhar                            |
+
+---
+
+![Sequence Diagram – Vendor Manage Payment](./images/manage_payment_sequence_diagram.png)
+
