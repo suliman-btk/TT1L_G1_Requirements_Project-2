@@ -1125,3 +1125,134 @@ This updated version supports real-time entry, backend logging, and transaction 
 
 ![Sequence Diagram – Vendor Manage Payment](./images/manage_payment_sequence_diagram.png)
 
+### 3.2.2.8 View Sales Report
+
+This section defines the functional requirements and [use case specification](#) for the **View Sales Report** feature for vendors. It now explicitly reflects backend interaction and error handling for missing data.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0801 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall allow vendors to request a sales report based on a defined period. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0802 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall retrieve the vendor’s sales data from the database. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0803 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall generate a structured report based on retrieved sales records. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0804 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall display the report to the vendor in a readable format. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0805 |
+|--------------------|--------|
+| **Version**        | 2.0    |
+| **Description**    | The system shall show an appropriate message if no sales data is found for the selected period. |
+| **Author**         | Yousef |
+
+---
+
+#### Use Case Specification – View Sales Report
+
+| **Use Case ID**    | UC008                            |
+|--------------------|----------------------------------|
+| **Version**        | 2.0                              |
+| **Feature**        | F008 – View Sales Report         |
+| **Purpose**        | To enable vendors to view and analyze their sales activity for a specific date range |
+| **Actor**          | Vendor                           |
+| **Trigger**        | Vendor initiates a sales report request from the dashboard |
+| **Precondition**   | Vendor must be logged in and have recorded transactions |
+| **Main Flow**      | 1. Vendor opens the report section from the dashboard <br> 2. Vendor selects a date range and clicks “Generate Report” <br> 3. System retrieves relevant sales data from the database <br> 4. System generates and formats the report <br> 5. System displays the report to the vendor |
+| **Alternate Flow – No Sales Found** | 3.1 System displays: “No sales data available for the selected period” |
+| **Author**         | Yousef                            |
+
+---
+
+![Sequence Diagram – View Sales Report](./images/view_sales_report_sequence_diagram.png)
+
+---
+
+### 3.2.2.9 Generate Event Report
+
+This section defines the functional requirements and [use case specification](#) for the **Generate Event Report** feature.
+
+This is the first dedicated version of this functionality, now modeled as its own use case for clarity and backend integration.
+
+#### Functional Requirements
+
+| **Requirement ID** | FR0901 |
+|--------------------|--------|
+| **Version**        | 1.0    |
+| **Description**    | The system shall allow admins to generate reports for specific events. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0902 |
+|--------------------|--------|
+| **Version**        | 1.0    |
+| **Description**    | The system shall retrieve all relevant attendance and transaction data from the database. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0903 |
+|--------------------|--------|
+| **Version**        | 1.0    |
+| **Description**    | The system shall compile the data into a readable and exportable format. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0904 |
+|--------------------|--------|
+| **Version**        | 1.0    |
+| **Description**    | The system shall allow the admin to view and optionally download the report. |
+| **Author**         | Yousef |
+
+---
+
+| **Requirement ID** | FR0905 |
+|--------------------|--------|
+| **Version**        | 1.0    |
+| **Description**    | The system shall notify the admin if no data is available for the selected event. |
+| **Author**         | Yousef |
+
+---
+
+#### Use Case Specification – Generate Event Report
+
+| **Use Case ID**    | UC009                             |
+|--------------------|-----------------------------------|
+| **Version**        | 1.0                               |
+| **Feature**        | F009 – Generate Event Report      |
+| **Purpose**        | To allow admins to generate and access post-event reports including attendance and sales data |
+| **Actor**          | Admin                             |
+| **Trigger**        | Admin accesses the report section and selects an event |
+| **Precondition**   | Admin must be logged in and the selected event must have at least one data record (attendance or transaction) |
+| **Main Flow**      | 1. Admin opens the reporting interface <br> 2. Admin selects an event to generate a report for <br> 3. System retrieves attendance and sales data related to that event <br> 4. System formats and compiles the report <br> 5. System displays the report and allows optional download |
+| **Alternate Flow – No Data** | 3.1 System displays: “No reportable data available for this event” |
+| **Author**         | Yousef                             |
+
+---
+
+![Sequence Diagram – Generate Event Report](./images/generate_event_report_sequence_diagram.png)
