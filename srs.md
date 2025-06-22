@@ -1359,3 +1359,21 @@ This is the first dedicated version of this functionality, now modeled as its ow
 | CON_004       | Limited Scope          | Features like venue navigation, mapping, and social media integration are outside the scope of this release.                 | Azhar  |
 | CON_005       | Security Compliance    | The system must adhere to data protection regulations when handling user credentials, financial transactions, and personal data. | Azhar  |
 
+### 3.7 Software System Attributes
+
+| Attribute ID | Attribute      | Rephrased Description                                                                                                         | Author |
+|--------------|----------------|-------------------------------------------------------------------------------------------------------------------------------|--------|
+| ATTR_001     | Reliability     | The system shall auto-recover from crashes within one minute, ensuring no data loss. All critical data such as check-ins and transactions will be saved and restored automatically. | Yousef |
+| ATTR_002     | Availability    | The application shall maintain uptime throughout event hours, with auto-recovery features restoring the latest saved state. | Yousef |
+| ATTR_003     | Security        | TLS encryption will be used for data transmission, and AES encryption will secure data at rest. Integrity checks will safeguard against tampering and unauthorized access. | Yousef |
+| ATTR_004     | Maintainability | The system shall be modular and well-documented, enabling easy maintenance, bug fixes, and future enhancements.              | Yousef |
+| ATTR_005     | Portability     | The application shall be compatible with both Android and iOS platforms.                                                     | Yousef |
+
+### 3.8 Supporting Information
+
+| Info ID   | Category                | Rephrased Description                                                                                                                                      | Author |
+|-----------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|
+| INFO_001  | Documentation           | - User guides for students, vendors, and admins  <br> - Backend API documentation for third-party integration                                              | Yousef |
+| INFO_002  | Source Code Management  | - The project source code will be hosted on GitHub for version control and collaboration                                                                   | Yousef |
+| INFO_003  | Legal and Ethical Compliance | - Data collection will comply with university privacy policies and local legal requirements <br> - Payment processing will follow PCI DSS standards via a secure gateway | Yousef |
+| INFO_004  | Tools & Frameworks      | - The app will be developed using Flutter; the backend database will use either SQLite or MongoDB depending on deployment requirements                     | Yousef |
