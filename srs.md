@@ -1319,3 +1319,23 @@ This is the first dedicated version of this functionality, now modeled as its ow
 | REQ_COM002 | Payment transactions shall be transmitted securely using HTTPS with TLS encryption between student devices and the Stripe system. | High | Suliman |
 | REQ_COM003 | Internal system communications, including QR code generation, event syncing, and logging, shall use HTTPS to ensure secure operations. | High | Suliman |
 | REQ_COM004 | All frontend interfaces for students, vendors, and admins shall communicate with the backend over HTTPS via web-based protocols to ensure secure and encrypted interactions. | High | Suliman |
+
+### 3.3 Performance Requirements
+
+| Requirement ID | Description | Priority | Author |
+|----------------|-------------|----------|--------|
+| REQ_P001 | The system must support up to 300 concurrent users without any noticeable performance degradation. | High | Lim Ai Nee |
+| REQ_P002 | Check-in validation and ticket verification must complete in under 5 seconds. | High | Lim Ai Nee |
+| REQ_P003 | All on-site transactions (e.g., purchases from vendors) must be processed accurately and efficiently. | High | Lim Ai Nee |
+| REQ_P004 | Upon successful registration, the event ticket confirmation should be issued within 10 seconds of form submission. | Medium | Lim Ai Nee |
+| REQ_P005 | The system must scale to support up to 3,000 total users, maintaining stability and preventing data loss. | Medium | Lim Ai Nee |
+| REQ_P006 | Any changes made by admins (such as event updates or ticket changes) must synchronize across all devices. | Medium | Lim Ai Nee |
+
+### 3.4 Usability Requirements
+
+| Requirement ID | Description | Priority | Author |
+|----------------|-------------|----------|--------|
+| REQ_UR001 | The system must deliver a user-friendly interface accessible on both web and mobile platforms. | High | Lim Ai Nee |
+| REQ_UR002 | All users (students, vendors, and admins) must be able to complete their tasks (e.g., check-in, view sales, register for events) without confusion or error. | Medium | Lim Ai Nee |
+| REQ_UR003 | The user interface should maintain readable fonts, well-organized layouts, and support keyboard navigation to ensure accessibility. | High | Lim Ai Nee |
+| REQ_UR004 | Error messages must be clear and informative, providing users with the guidance to recover from errors independently. | High | Lim Ai Nee |
