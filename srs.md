@@ -1339,3 +1339,23 @@ This is the first dedicated version of this functionality, now modeled as its ow
 | REQ_UR002 | All users (students, vendors, and admins) must be able to complete their tasks (e.g., check-in, view sales, register for events) without confusion or error. | Medium | Lim Ai Nee |
 | REQ_UR003 | The user interface should maintain readable fonts, well-organized layouts, and support keyboard navigation to ensure accessibility. | High | Lim Ai Nee |
 | REQ_UR004 | Error messages must be clear and informative, providing users with the guidance to recover from errors independently. | High | Lim Ai Nee |
+
+### 3.5 Logical Database Requirements
+
+| Database ID | System Database | Revised Description                                                                 | Author |
+|-------------|------------------|-------------------------------------------------------------------------------------|--------|
+| DB_001      | Events            | Maintains metadata for each campus event including name, date, and venue.          | Azhar  |
+| DB_002      | Tickets           | Links registered users to specific events through unique ticket records.           | Azhar  |
+| DB_003      | Checkins          | Logs each check-in instance during the event for attendance tracking.              | Azhar  |
+| DB_004      | Transactions      | Records all on-site vendor transactions and payment activities.                    | Azhar  |
+
+### 3.6 Design Constraints
+
+| Constraint ID | Constraint             | Revised Description                                                                                                           | Author |
+|---------------|------------------------|-------------------------------------------------------------------------------------------------------------------------------|--------|
+| CON_001       | Device Compatibility   | System performance may degrade on outdated devices or unsupported operating systems.                                          | Azhar  |
+| CON_002       | Third-party Integrations | The system depends on external services, such as university databases and a secure payment gateway, for full functionality. | Azhar  |
+| CON_003       | Network Dependence     | A stable internet connection is required for real-time operations like check-ins and payment logging. Offline usage is not supported. | Azhar  |
+| CON_004       | Limited Scope          | Features like venue navigation, mapping, and social media integration are outside the scope of this release.                 | Azhar  |
+| CON_005       | Security Compliance    | The system must adhere to data protection regulations when handling user credentials, financial transactions, and personal data. | Azhar  |
+
