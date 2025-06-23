@@ -1377,3 +1377,122 @@ This is the first dedicated version of this functionality, now modeled as its ow
 | INFO_002  | Source Code Management  | - The project source code will be hosted on GitHub for version control and collaboration                                                                   | Yousef |
 | INFO_003  | Legal and Ethical Compliance | - Data collection will comply with university privacy policies and local legal requirements <br> - Payment processing will follow PCI DSS standards via a secure gateway | Yousef |
 | INFO_004  | Tools & Frameworks      | - The app will be developed using Flutter; the backend database will use either SQLite or MongoDB depending on deployment requirements                     | Yousef |
+
+### 3.8.1 *Validation Activities*
+
+This section contains information about the validation activities the team applied to check and validate the SRS report against the three requirements engineering dimensions. There are two sub-sections in this section. The first outlines the validation sessions conducted by the team, and the second presents the validation details.
+
+---
+
+### 3.8.1.1 *Validation Sessions*
+
+#### Review Object
+- **ID / Title / Version:** v1.0  
+- **Author / Group Name:** G1  
+
+**Meeting Information**  
+- **Date / Time:** 8 / 6 / 2025, 3:00 pm  
+
+**Participation (Roles):**  
+- Suliman (Inspector, Minute-taker)  
+- Yousef (Moderator, Inspector, Reader)  
+- Azhar (Author, Stakeholder)  
+- Lim Ai Nee (Organizer, Inspector, Stakeholder)  
+
+---
+
+#### Review Object
+- **ID / Title / Version:** v1.0  
+- **Author / Group Name:** G1  
+
+**Meeting Information**  
+- **Date / Time:** 8 / 6 / 2025, 3:00 pm  
+
+**Participation (Roles):**  
+- Suliman (Moderator, Inspector, Reader)  
+- Yousef (Inspector, Minute-taker)  
+- Azhar (Author, Stakeholder)  
+- Lim Ai Nee (Organizer, Inspector, Stakeholder)  
+
+---
+
+#### Review Object
+- **ID / Title / Version:** v1.0  
+- **Author / Group Name:** G1  
+
+**Meeting Information**  
+- **Date / Time:** 16 / 6 / 2025, 3:00 pm  
+
+**Participation (Roles):**  
+- Suliman (Moderator, Inspector, Reader)  
+- Yousef (Inspector, Minute-taker)  
+- Azhar (Organizer, Inspector, Stakeholder)  
+- Lim Ai Nee (Author, Stakeholder)  
+
+---
+
+### 3.8.1.2 *Validation Details*
+
+This subsection presents two artefacts:
+
+- **Table 3.8.2 Defects Table** – lists every defect discovered during validation. Each entry shows the page or use-case ID where the defect appears, the reviewer who raised it, its impact, and the team’s recommended action.  
+  Defects are prefixed **C-**, **D-**, or **A-** to identify **Content**, **Documentation**, and **Agreement** issues respectively.  
+
+The “ID / Page No” column always references either a use-case number (e.g., UC010) or the chapter/sub-chapter where the issue existed in the previous SRS draft, allowing traceability across revisions.
+
+---
+
+### Table 3.8.2 Defects Table
+
+| No  | ID / Page No           | Defect Description                                                                 | Type                                | Inspector Name | Impact                                                  | Recommended Action                                 |
+|-----|------------------------|-------------------------------------------------------------------------------------|--------------------------------------|----------------|----------------------------------------------------------|-----------------------------------------------------|
+| C-1 | 1.3.3                  | Vendor account source is undefined; no onboarding workflow                         | Agreement Defect + Conflict          | Suliman        | System assumes vendor accounts exist yet provides no creation flow | Add a mechanism to add vendors account             |
+| C-2 | UC008, UC006           | Several sequence diagrams lack alternate/error flows (e.g., Sales Report, Admin)   | Content Defect                       | Suliman        | Edge-case behavior undocumented                         | Update all UC tables with error flows              |
+| C-3 | UC005, UC006, UC007, UC008 | Sequence diagrams omit backend/database calls (e.g., ticket update, payment record) | Content Defect                       | Suliman        | Data-consistency path invisible                         | Update diagrams                                    |
+| C-4 | 3.5                    | Duplicate local Users/Roles tables while identity is handled by university DB       | Content Defect                       | Yousef         | Risk of data divergence                                 | Remove duplicate tables                           |
+| C-5 | UC005, UC007...        | “Payment DB / Ticket DB” labels imply separate physical DBs                        | Content Defect                       | Azhar          | Misleads architecture readers                           | Rename to logical tables in a single DB           |
+| C-6 | 1.3                    | The system is missing the Goals                                                    | Content Defect                       | Suliman        | Traceability to goals impossible                        | Add “System Goals” under 1.3                       |
+| D-1 | Most Tables            | Inconsistent table formatting & captions                                           | Formatting Defect                    | Yousef         | Hard to scan / reference                                | Update all tables with a standardized styling     |
+| D-2 | 1.1, 1.3.2             | Mixed terminology: “User ID” vs. “University ID”                                   | Language Defect                      | Lim Ai Nee     | Causes confusion                                        | Choose one term                                   |
+| D-3 | UC003                  | Grammar issues in flow descriptions (“Student arrive”, etc.)                       | Language Defect                      | Azhar          | Reduces professionalism                                 | Correct sentences                                 |
+| D-4 | Most Figures           | Figure numbers/captions missing or duplicated                                      | Structural Defect                    | Azhar          | Navigation difficult                                    | Unique numbering                                  |
+| D-5 | UC003, UC005           | Use-case flows mix bullets, numbers, vague labels                                  | Formatting Defect                    | Suliman        | Inconsistent readability                                | Re-format flows                                   |
+| D-6 | UC007                  | Sequence diagrams break UML rules (messages from actors, 2 actors on 1 diagram)    | Modeling Defect                      | Yousef         | Non-standard diagrams                                   | Redraw correctly                                  |
+| D-7 | 3.4.4                  | References to SQLite in API text but DB undecided                                  | Language Defect                      | Lim Ai Nee     | Creates false specificity                               | Edit Software Interface section and generalize wording |
+| D-8 | 3.4.2                  | UI specification supplied only as mock-ups; interface-element tables missing       | Documentation Defect                 | Yousef         | Hard to see precise screen elements                     | Provide detailed UI tables per function           |
+| D-9 | -                      | Use-case diagram shows erroneous subsystem boundary                                | Modeling Defect                      | Azhar          | Misrepresents system scope                              | Replace diagram with correct single-system use-case |
+| D-10| -                      | Interface Requirements section located in wrong chapter                            | Structural Defect                    | Lim Ai Nee     | Document structure deviates from ISO/IEC 29148         | Relocate section to 1.3 Product Perspective       |
+| A-1 | -                      | UI shows only mobile screens; laptops/tablets promised for admins & vendors        | Agreement Defect                     | Azhar          | Platform mismatch                                       | Clarify responsive design                         |
+| A-2 | -                      | Stripe named elsewhere but not in System Interfaces table                          | Agreement Defect                     | Yousef         | Integration uncertainty                                 | Update Sys Interfaces row                         |
+
+### 3.8.2 *Conflict Analysis & Resolution*
+
+**Table 3.8.3 Conflicts Table** – captures items that could not be classified as straightforward defects because reviewers initially disagreed on how to resolve them. For each conflict we record the description, the rationale behind the disagreement, and the final resolution reached after negotiation.
+
+#### Table 3.8.3 Conflicts Table
+
+| No | Conflict Description | Conflict Analysis (reason for disagreement) | Final Resolution (what was changed) |
+|----|----------------------|----------------------------------------------|-------------------------------------|
+| 1  | Vendor onboarding undefined – some reviewers assumed self-registration via university DB; others expected admin-created accounts | System design only authenticates students via university DB; vendors are external. Expectations differed. | Resolved: Added Admin Adds Vendor Account flow (UC-010) and UI tables; clarified in System Interfaces that vendors are created locally. |
+| 2  | Screens showed only mobile layouts while admins/vendors expected tablet / laptop use | Mobile-only mock-ups implied single-platform support. | Resolved: Added statement that UI is fully responsive. |
+| 3  | Stripe gateway referenced in text but missing in table | Omission created uncertainty about payment integration. | Resolved: Stripe added to 3.4.1 System Interfaces row (Payment Gateway Integration). |
+| 4  | External Interface Requirements located in wrong chapter | ISO/IEC 29148 requires interface desc. in 1.x context. | Resolved: Section relocated to 1.3; cross-refs updated. |
+
+### 3.8.3 *Traceability Matrix*
+
+**Table 3.8.4** presents the Traceability Matrix, which maps functional requirement scenarios (REQ_Fxxx) to the corresponding system goals (REQ_Gxxx). This matrix ensures that all defined goals are adequately addressed by specific requirements, helping maintain alignment between stakeholder objectives and system functionality throughout the development process. It supports verification, validation, and completeness of the requirement coverage.
+
+#### Table 3.8.4 Traceability Matrix Table
+
+| Scenarios     | REQ_G001 | REQ_G002 | REQ_G003 | REQ_G004 | REQ_G005 | REQ_G006 | REQ_G007 |
+|---------------|----------|----------|----------|----------|----------|----------|----------|
+| REQ_F001      |          |          |          | satisfies|          |          |          |
+| REQ_F002      |          |          |          |          |          | satisfies|          |
+| REQ_F003      | satisfies|          |          |          | satisfies|          |          |
+| REQ_F004      |          | satisfies|          |          |          |          |          |
+| REQ_F005      |          |          | satisfies|          |          |          |          |
+| REQ_F006      |          |          | satisfies|          | satisfies|          | satisfies|
+| REQ_F007      |          |          |          |          | satisfies|          |          |
+| REQ_F008      |          |          |          | satisfies|          | satisfies|          |
+| REQ_F009      |          |          |          |          |          | satisfies| satisfies|
+| REQ_F010      |          | satisfies|          |          | satisfies|          |          |
