@@ -100,7 +100,11 @@ The development and validation process of this SRS followed the steps below:
   Push message (descirption of change): Rephrased and corrected the Software System Attributes and Supporting Information  
   Date: Jun 22, 2025, 7:28 PM  
   Author: Yousef  
-  Reason: Correcting the 3.7 and 3.8 sub-chapters with our the validation activities sub-chapter   
+  Reason: Correcting the 3.7 and 3.8 sub-chapters   
   
-  
+  Push message (descirption of change): Added Validation Activities, Conflict Analysis & Resolution, and Traceability Matrix  
+  Date: Jun 23, 2025, 10:09 PM  
+  Author: Suliman  
+  Reason: Correcting the 3.8.1, 3.8.2 and 3.8.3 sub-chapters    
+
   > **Note:** These were the last commits. Most of the remaining work, especially the *Validation Activities* and *Traceability Matrix*, was completed during the meetings and added directly by the team leader.
